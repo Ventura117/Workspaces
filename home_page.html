@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="styles/page_frame.css">
+</head>
+<body>
+
+  <div class="page-frame-logo">
+    Workspaces
+  </div>
+  <div class="page-frame-title">
+    Home
+  </div>
+  <nav class="page-frame-nav">
+    <li class="page-frame-nav-li-active" onclick="loadPage('home')">Home</li>
+    <li class="page-frame-nav-li" onclick="loadPage('todo')">Todo List</li>
+    <li class="page-frame-nav-li" onclick="loadPage('notes')">Notes</li>
+    <li class="page-frame-nav-li" onclick="loadPage('projects')">Projects</li>
+    <li class="page-frame-nav-li" onclick="loadPage('cheatsheet')">Cheatsheet</li>
+  </nav>
+  <div class="page-frame-content">
+    content here
+  </div>
+
+  <script src="scripts/page_frame.js"></script>
+</body>
+</html>
