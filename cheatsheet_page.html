@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cheatsheet</title>
   <link rel="stylesheet" href="styles/page_frame.css">
+  <link rel="stylesheet" href="styles/cheatsheet_page.css">
 </head>
 <body>
   
@@ -22,9 +23,253 @@
     <li class="page-frame-nav-li-active" onclick="loadPage('cheatsheet')">Cheatsheet</li>
   </nav>
   <div class="page-frame-content">
-    content here
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('strings')">
+        <h3>Strings</h3>
+        <img class="strings-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content strings-content">
+        <h4>String(value)</h4>
+        <li>Converts a value to a string</li>
+        <li>Returns a new string; does not modify the original value</li>
+
+        <h4>string.split('separator', limit)</h4>
+        <li>Splits a string into an array</li>
+        <li>Separator defines where to create a new array value</li>
+        <li>Limit used to specify the number of values to add to the array before stopping the function; is optional</li>
+        <li>Returns a new array; does not modify the original value</li>
+        <p>Example: let name = 'Anthony Ventura' => let nameSeparated = name.split(' ') => nameSeparated = ['Anthony', 'Ventura']</p>
+        <p>Example: let names = 'Anthony Ventura Miguel Gutierrez Patrick Fagel' => let namesSeparated = names.split(' ', 3) => namesSeparated = ['Anthony', 'Ventura', 'Miguel']</p>
+      
+        <h4>array.join('separator')</h4>
+        <li>Joins values from an array into a string</li>
+        <li>Separator defines the character to add between values</li>
+        <li>Returns a new string; does not modify the original array</li>
+        <p>let namesSeparated = ['Anthony', 'Ventura'] => let namesJoined = namesSeparated.join(' ') => namesJoined = 'Anthony Ventura'</p>
+
+        <h4>string.trim()</h4>
+        <li>Removes leading and trailing white space</li>
+        <li>Returns a new string; does not modify the original string</li>
+
+        <h4>string.toUpperCase()</h4>
+        <li>Converts all characters in a string to uppercase</li>
+        <li>Returns a new string; does not modify the original string</li>
+
+        <h4>string.toLowerCase()</h4>
+        <li>Converts all characters in a string to uppercase</li>
+        <li>Returns a new string; does not modify the original string</li>
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('numbers')">
+        <h3>Numbers</h3>
+        <img class="numbers-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content numbers-content">
+        <h4>Number(value)</h4>
+        <li>Converts a value to a number</li>
+        <li>Returns a new number; does not modify the original value</li>
+
+        <h4>Math.round(number)</h4>
+        <li>Rounds a number to the nearest integer, up or down</li>
+        <li>Returns a new number; does not modify the original value</li>
+
+        <h4>Math.floor(number)</h4>
+        <li>Rounds a number down to the nearest integer</li>
+        <li>Returns a new number; does not modify the original value</li>
+
+        <h4>Math.ceil(number)</h4>
+        <li>Rounds a number up to the nearest integer</li>
+        <li>Returns a new number; does not modify the original value</li>
+
+        <h4>Math.max(...arr) or Math.max(value1, value2, ...)</h4>
+        <li>Find the highest value in a set of values</li>
+        <li>Spread operator must be used when searching an array</li>
+        <li>Returns a new number; does not modify the original values</li>
+        <li>Returns NaN if at least one value cannot be ocnverted to a number</li>
+
+        <h4>Math.min(...arr) or Math.min(value1, value2, ...)</h4>
+        <li>Find the lowest value in a set of values</li>
+        <li>Spread operator must be used when searching an array</li>
+        <li>Returns a new number; does not modify the original values</li>
+        <li>Returns NaN if at least one value cannot be ocnverted to a number</li>
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('objects')">
+        <h3>Objects</h3>
+        <img class="objects-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content objects-content">
+        <h4>object.property</h4>
+        <li>DOT Notation</li>
+        <li>Use when accessing an object where the property name is known</li>
+        <li>Creates a new property under the object if the property name does not exist</li>
+
+        <h4>object[property]</h4>
+        <li>Bracket Notation</li>
+        <li>Use when accessing an object where the property name is not known</li>
+        <li>Creates a new property under the object if the property name does not exist</li>
+
+        <h4>Object.keys(objName)</h4>
+        <li>Returns an array of an objects property names</li>
+        <p>Example: const person = {firstName: 'Anthony', lastName: 'Ventura', age: 31} => const propertyKeys = Object.keys(person) => propertyKeys = ['firstName', 'lastName', 'age']</p>
+
+        <h4>Object.values(objName)</h4>
+        <li>Returns an array of an objects property values</li>
+        <p>Example: const person = {firstName: 'Anthony', lastName: 'Ventura', age: 31} => const propertyValues = Object.values(person) => propertyvalues = ['Anthony', 'Ventura', 31]</p>
+
+        <h4>Object.entries(objName)</h4>
+        <li>Returns an array containing sub arrays of the bojects property-value pairs</li>
+        <p>Example: const person = {firstName: 'Anthony', lastName: 'Ventura', age: 31} => const propertyPairs = Object.entries(person) => propertyPairs = [['firstName', 'Anthony'], ['lastName', 'Ventura'], ['age', 31]]</p>
+
+        <h4>Object.assign(target, ...sources)</h4>
+        <li>Copies properties and values from one or more objects to the target object</li>
+        <li>Creates shallow copies of nested objects (copies only the reference)</li>
+        <li>Returns a new object; the target object is not modified</li>
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('arrays')">
+        <h3>Arrays</h3>
+        <img class="arrays-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content arrays-content">
+        <h4>...arrayName</h4>
+        <li>Expands an array into individual values</li>
+        <li>Not using the spread operator only targets the reference the the array</li>
+        <p>Example: let array1 = [1, 2, 3], let array2 = [4, 5, 6] => arraysCombined = [...array1, ...array2] => arraysCombined = [1, 2, 3, 4, 5, 6]</p>
+
+        <h4>arrayName.sort() or arrayName.sort((a, b) => a - b)</h4>
+        <li>Sorts values in an array in ascending order</li>
+        <li>Use ((a, b) => a - b) when sorting numbers</li>
+        <li>Modifies the original array</li>
+        <p>Example: let numbers = [3, 1, 2] => numbers.sort() => numbers = [1, 2, 3]</p>
+        <p>Example: let letters = ['c', 'a', 'b'] => letters.sort() => letters = ['a', 'b', 'c']</p>
+
+        <h4>arrayName.sort((a, b) => b - a)</h4>
+        <li>Sorts values in an array in descending order</li>
+        <li>Modifies the original array</li>
+
+        <h4>arrayName.reverse()</h4>
+        <li>Reverse the order of values in an array</li>
+        <li>Modifies the original array</li>
+
+        <h4>arrayName.includes(value, startIndex)</h4>
+        <li>Search if an arrays contained the given value</li>
+        <li>startIndex defines the index in the array to begin searching; it is optional</li>
+        <li>Returns a boolean</li>
+
+        <h4>arrayName.unshift(value1, value2, ...array, array)</h4>
+        <li>Adds values to the beginning of an array</li>
+        <li>Modifies the original array</li>
+
+        <h4>arrayName.shift()</h4>
+        <li>Removes the first value from an array</li>
+        <li>Modifies the original array</li>
+        <li>Optionally, returns the value removed</li>
+
+        <h4>arrayName.push(value1, value2, ...array, array)</h4>
+        <li>Adds values to the end of an array</li>
+        <li>Modifies the original array</li>
+
+        <h4>arrayName.pop()</h4>
+        <li>Removes the last value from an array</li>
+        <li>Modifies the original array</li>
+        <li>Optionally, returns the value removed</li>
+
+        <h4>arrayName.splice(startIndex, deleteCount, value1, value2, ...)</h4>
+        <li>Remove or replaces values in an array</li>
+        <li>startIndex defines the position in the array to begin replace/remove; if negative then starts from the end</li>
+        <li>deleteCount defines the number of values to remove remove</li>
+        <li>values define the values to add starting from the startIndex; is optional</li>
+        <li>Optionally, returns an array of the values removed</li>
+        <p>Example: let groceries = ['eggs', 'ham', 'cheese', 'burger'] => groceries.splice(2, 1) => groceries = ['eggs', 'ham', 'burger']</p>
+
+        <h4>array.slice(startIndex, endIndex)</h4>
+        <li>Returns a shallow copy of array values</li>
+        <li>startIndex defines the the position in the array to begin copying; is optional</li>
+        <li>endIndex defines the position in the array to end copying; is optional</li>
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('loops')">
+        <h3>Loops</h3>
+        <img class="loops-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content loops-content">
+        
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('events')">
+        <h3>Events</h3>
+        <img class="events-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content events-content">
+        
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('storage')">
+        <h3>Storage</h3>
+        <img class="storage-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content storage-content">
+        <h4>JSON.stringify(value)</h4>
+        <li>Converts an javascript object or value into a JSON string</li>
+
+        <h4>JSON.parse()</h4>
+        <li>Converts JSON strings into an javascript object</li>
+        
+        <h4>localStorage.setItem('key', JSON.stringify(value))</h4>
+        <li>Saves a value into the browser's local storage</li>
+        <li>Key is the name of the file</li>
+
+        <h4>JSON.parse(localStorage.getItem('key'))</h4>
+        <li>Loads a value into the html page</li>
+
+        <h4>localStorage.removeItem('key')</h4>
+        <li>Remove a value from local storage</li>
+
+        <h4>sessionStorage</h4>
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('dom')">
+        <h3>DOM/Elements</h3>
+        <img class="dom-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content dom-content">
+        <h4>element.classList.add('class-name')</h4>
+
+        <h4>element.classList.remove('class-name')</h4>
+
+        <h4>element.classList.contains('class-name')</h4>
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('css')">
+        <h3>CSS</h3>
+        <img class="css-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content css-content">
+        
+      </div>
+    </div>
+
   </div>
 
   <script src="scripts/page_frame.js"></script>
+  <script src="scripts/cheatsheet_page.js"></script>
 </body>
 </html>
