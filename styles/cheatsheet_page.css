@@ -1,0 +1,27 @@
+.syntax-container {
+  border: 1px solid rgb(60, 60, 60);
+  margin-bottom: 12px;
+}
+img {
+  height: 35px;
+  width: 35px;
+}
+.syntax-container-header {
+  padding: 0px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.syntax-container-header:hover {
+  background-color: rgb(220, 220, 220);
+}
+.syntax-container-content {
+  padding: 0px 12px;
+  padding-bottom: 12px;
+  display: none;
+}
+.is-toggled {
+  display: block;
+}

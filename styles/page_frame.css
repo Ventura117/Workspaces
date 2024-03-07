@@ -39,6 +39,7 @@ body {
   transition: 0.3s;
 }
 .page-frame-nav-li:hover {
+  font-weight: bold;
   color: rgb(20, 20, 20);
   background-color: whitesmoke;
   border-top-left-radius: 50px;
@@ -48,6 +49,7 @@ body {
   margin-left: 6px;
 }
 .page-frame-nav-li-active {
+  font-weight: bold;
   list-style: none;
   font-size: 20px;
   cursor: pointer;
@@ -58,4 +60,7 @@ body {
   padding: 12px 20px;
   margin: 8px 0px;
   margin-left: 6px;
+}
+.page-frame-content {
+  padding: 12px;
 }
