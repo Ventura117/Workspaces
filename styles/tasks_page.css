@@ -1,0 +1,127 @@
+.page-frame-content {
+  font-family: Roboto;
+  font-size: 15px;
+}
+.task-list-container {
+  border-radius: 0px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(60, 60, 60);
+  border-bottom: none;
+  padding: 6px;
+}
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list-empty {
+  font-style: italic;
+  color: rgb(155, 155, 155);
+  margin: 2px 0px;
+}
+.task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 1.47;
+}
+.task:hover {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: rgba(60, 60, 60, .3);
+}
+.task-name-complete {
+  text-decoration: line-through;
+}
+.task-links {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+}
+.edit-links {
+  font-size: 12px;
+}
+.hidden {
+  display: none;
+}
+.project-holder {
+  width: 100px;
+  text-align: right;
+}
+.link-mark-done,
+.link-remove,
+.link-edit,
+.link-project {
+  margin-left: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
+.task-input-container {
+  display: flex;
+  flex-direction: row;
+}
+.input-task-name,
+.input-task-proj,
+.input-task-name-edit,
+.input-task-proj-edit {
+  border-radius: 0px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(60, 60, 60);
+  padding: 6px;
+  outline: none;
+  font-size: 15px;
+  font-family: Roboto;
+}
+.input-task-name, 
+.input-task-name-edit {
+  flex: 1;
+  border-right: none;
+}
+.input-task-proj {
+  width: 170px;
+}
+.input-task-proj-edit {
+  width: 163px;
+}
+.input-task-name-edit,
+.input-task-proj-edit {
+  padding: 4px 6px;
+  border-radius: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(60, 60, 60);
+}
+.input-task-name-edit::placeholder,
+.input-task-proj-edit::placeholder {
+  font-size: 14px;
+}
+.save-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  margin-right: 2px;
+  margin-top: 1px;
+  cursor: pointer;
+}
+.editing {
+  display: flex;
+  align-items: center
+}
+.clear-container {
+  display: flex;
+  justify-content: right;
+}
+.clear-tasks-button {
+  font-size: 11px;
+  margin-bottom: 6px;
+  margin-right: 2px;
+  border-radius: 0px;
+  border-width: 1px;
+  border-color: red;
+  color: red;
+  background-color: white;
+  cursor: not-allowed;
+}

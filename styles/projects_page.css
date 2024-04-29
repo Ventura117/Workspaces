@@ -1,0 +1,52 @@
+.tools-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.tools-button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.buckets-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.bucket-button {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: whitesmoke;
+  color: rgb(20, 20, 20);
+  padding: 12px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-bottom: 0px;
+  transition: all 0.15s;
+}
+.bucket-button:hover {
+  background-color: rgba(60, 60, 60, 0.9);
+  color: whitesmoke;
+}
+.active-button {
+  background-color: rgba(60, 60, 60, 0.9);
+  color: whitesmoke;
+}
+table {
+  display: none;
+  width: 100%;
+}
+.active-table {
+  display: table;
+  width: 100%;
+  border: 1px solid rgb(60, 60, 60);
+  margin-top: 0px;
+}
+td {
+  text-align: center;
+}

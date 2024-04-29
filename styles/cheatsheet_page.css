@@ -3,8 +3,8 @@
   margin-bottom: 12px;
 }
 img {
-  height: 35px;
-  width: 35px;
+  height: 28px;
+  width: 28px;
 }
 .syntax-container-header {
   padding: 0px 12px;
@@ -16,6 +16,17 @@ img {
 }
 .syntax-container-header:hover {
   background-color: rgb(220, 220, 220);
+}
+.syntax-header-name {
+  margin: 14px 0px;
+  font-size: 1.12em;;
+}
+.sytax-header-value {
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+.tips-li {
+  font-size: 14px;
 }
 .syntax-container-content {
   padding: 0px 12px;
