@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks</title>
+  <link rel="stylesheet" href="styles/page_frame.css">
+  <link rel="stylesheet" href="styles/tasks_page.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="page-frame-logo">
+    Workspaces
+  </div>
+  <div class="page-frame-title">
+    Tasks
+  </div>
+  <nav class="page-frame-nav">
+    <li class="page-frame-nav-li" onclick="loadPage('home')">Home</li>
+    <li class="page-frame-nav-li-active" onclick="loadPage('tasks')">Tasks</li>
+    <li class="page-frame-nav-li" onclick="loadPage('projects')">Projects</li>
+    <li class="page-frame-nav-li" onclick="loadPage('notes')">Notes</li>
+    <li class="page-frame-nav-li" onclick="loadPage('cheatsheet')">Cheatsheet</li>
+  </nav>
+  <div class="page-frame-content">
+
+    <div class="clear-container">
+      <button class="clear-tasks-button" onclick="deleteAllTasks()">Clear Tasks</button>
+    </div>
+    
+    <div class="task-list-container">
+      <ul class="task-list">
+        
+      </ul>
+    </div>
+    <div class="task-input-container">
+      <input class="input-task-name" type="text" onkeypress="handleKeyPressInput(event)" placeholder="Enter task name">
+      <input class="input-task-proj" type="text" onkeypress="handleKeyPressInput(event)" placeholder="Enter project id">
+    </div>
+
+  </div>
+
+  <script src="scripts/page_frame.js"></script>
+  <script src="scripts/tasks_page.js"></script>
+</body>
+</html>

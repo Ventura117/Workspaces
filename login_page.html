@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles/login_frame.css">
+</head>
+<body>
+
+  <header>
+    <h1>Workspaces</h1>
+  </header>
+
+  <main>
+    <div class="login-wrapper">
+      <h2>Login</h2>
+  
+      <form class="login-input">
+        <input placeholder="Enter email" required>
+        <input placeholder="Enter password" required>
+        <div class="login-buttons">
+          <button type="reset" class="clear-button">Clear</button>
+          <button type="submit" class="login-button" onclick="loadPage('home')">Login</button>
+        </div>
+      </form>
+      <div class="login-links">
+        <a href="">Reset password</a>
+        <a href="">Request access</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="scripts/login_frame.js"></script>
+</body>
+</html>

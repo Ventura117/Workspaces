@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects</title>
   <link rel="stylesheet" href="styles/page_frame.css">
+  <link rel="stylesheet" href="styles/projects_page.css">
 </head>
 <body>
   
@@ -16,16 +17,91 @@
   </div>
   <nav class="page-frame-nav">
     <li class="page-frame-nav-li" onclick="loadPage('home')">Home</li>
-    <li class="page-frame-nav-li" onclick="loadPage('todo')">Todo List</li>
-    <li class="page-frame-nav-li" onclick="loadPage('notes')">Notes</li>
+    <li class="page-frame-nav-li" onclick="loadPage('tasks')">Tasks</li>
     <li class="page-frame-nav-li-active" onclick="loadPage('projects')">Projects</li>
+    <li class="page-frame-nav-li" onclick="loadPage('notes')">Notes</li>
     <li class="page-frame-nav-li" onclick="loadPage('cheatsheet')">Cheatsheet</li>
   </nav>
   <div class="page-frame-content">
-    content here
-    <button onclick="loadPage('new_project')">New Project</button>
+
+    <div class="tools-container">
+      <div>
+        <button class="tools-button">Filter...</button>
+        <button class="tools-button">Reset Filter</button>
+      </div>
+      <div>
+        <button class="tools-button">Export</button>
+        <button class="tools-button" onclick="logProjects()">Log Projects</button>
+        <button class="tools-button">Delete Project File</button>
+        <button class="tools-button" onclick="loadPage('new_project')">New Project</button>
+      </div>
+    </div>
+
+    <div class="table-container">
+
+      <div class="buckets-container">
+  
+        <div class="bucket-button active-projects-button active-button" onclick="makeActive('active')">Active</div>
+        <div class="bucket-button archive-projects-button" onclick="makeActive('archive')">Archive</div>
+  
+      </div>
+  
+      <table class="active-projects-table active-table">
+        <colgroup>
+          <col style="width: 11%">
+          <col style="width: 11%">
+          <col style="width: 20%">
+          <col style="width: 30%">
+          <col style="width: 10%">
+          <col style="width: 8%">
+          <col style="width: 10%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Zendesk ID</th>
+            <th>Azure ID</th>
+            <th>Project Name</th>
+            <th>Project Title</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody class="active-projects-body">
+          
+        </tbody>
+      </table>
+  
+      <table class="archive-projects-table">
+        <colgroup>
+          <col style="width: 11%">
+          <col style="width: 11%">
+          <col style="width: 20%">
+          <col style="width: 30%">
+          <col style="width: 10%">
+          <col style="width: 8%">
+          <col style="width: 10%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Zendesk ID</th>
+            <th>Azure ID</th>
+            <th>Project Name</th>
+            <th>Project Title</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody class="archive-projects-body">
+          
+        </tbody>
+      </table>
+  
+    </div>
   </div>
 
   <script src="scripts/page_frame.js"></script>
+  <script src="scripts/projects_page.js"></script>
 </body>
 </html>

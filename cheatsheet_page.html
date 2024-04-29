@@ -17,189 +17,228 @@
   </div>
   <nav class="page-frame-nav">
     <li class="page-frame-nav-li" onclick="loadPage('home')">Home</li>
-    <li class="page-frame-nav-li" onclick="loadPage('todo')">Todo List</li>
-    <li class="page-frame-nav-li" onclick="loadPage('notes')">Notes</li>
+    <li class="page-frame-nav-li" onclick="loadPage('tasks')">Tasks</li>
     <li class="page-frame-nav-li" onclick="loadPage('projects')">Projects</li>
+    <li class="page-frame-nav-li" onclick="loadPage('notes')">Notes</li>
     <li class="page-frame-nav-li-active" onclick="loadPage('cheatsheet')">Cheatsheet</li>
   </nav>
   <div class="page-frame-content">
 
     <div class="syntax-container">
       <div class="syntax-container-header" onclick="toggleContent('strings')">
-        <h3>Strings</h3>
+        <h3 class="syntax-header-name">Strings</h3>
         <img class="strings-img" src="images/up-arrow.png">
       </div>
       <div class="syntax-container-content strings-content">
-        <h4>String(value)</h4>
-        <li>Converts a value to a string</li>
-        <li>Returns a new string; does not modify the original value</li>
+        <h4 class="sytax-header-value">String(value)</h4>
+        <li class="tips-li">Converts a value to a string</li>
+        <li class="tips-li">Returns a new string; does not modify the original value</li>
 
-        <h4>string.split('separator', limit)</h4>
-        <li>Splits a string into an array</li>
-        <li>Separator defines where to create a new array value</li>
-        <li>Limit used to specify the number of values to add to the array before stopping the function; is optional</li>
-        <li>Returns a new array; does not modify the original value</li>
-        <p>Example: let name = 'Anthony Ventura' => let nameSeparated = name.split(' ') => nameSeparated = ['Anthony', 'Ventura']</p>
-        <p>Example: let names = 'Anthony Ventura Miguel Gutierrez Patrick Fagel' => let namesSeparated = names.split(' ', 3) => namesSeparated = ['Anthony', 'Ventura', 'Miguel']</p>
+        <h4 class="sytax-header-value">string.split('separator', limit)</h4>
+        <li class="tips-li">Splits a string into an array</li>
+        <li class="tips-li">Separator defines where to create a new array value</li>
+        <li class="tips-li">Limit used to specify the number of values to add to the array before stopping the function; is optional</li>
+        <li class="tips-li">Returns a new array; does not modify the original value</li>
+        <p class="tips-li">Example: let name = 'Anthony Ventura' => let nameSeparated = name.split(' ') => nameSeparated = ['Anthony', 'Ventura']</p>
+        <p class="tips-li">Example: let names = 'Anthony Ventura Miguel Gutierrez Patrick Fagel' => let namesSeparated = names.split(' ', 3) => namesSeparated = ['Anthony', 'Ventura', 'Miguel']</p>
       
-        <h4>array.join('separator')</h4>
-        <li>Joins values from an array into a string</li>
-        <li>Separator defines the character to add between values</li>
-        <li>Returns a new string; does not modify the original array</li>
-        <p>let namesSeparated = ['Anthony', 'Ventura'] => let namesJoined = namesSeparated.join(' ') => namesJoined = 'Anthony Ventura'</p>
+        <h4 class="sytax-header-value">array.join('separator')</h4>
+        <li class="tips-li">Joins values from an array into a string</li>
+        <li class="tips-li">Separator defines the character to add between values</li>
+        <li class="tips-li">Returns a new string; does not modify the original array</li>
+        <p class="tips-li">let namesSeparated = ['Anthony', 'Ventura'] => let namesJoined = namesSeparated.join(' ') => namesJoined = 'Anthony Ventura'</p>
 
-        <h4>string.trim()</h4>
-        <li>Removes leading and trailing white space</li>
-        <li>Returns a new string; does not modify the original string</li>
+        <h4 class="sytax-header-value">string.trim()</h4>
+        <li class="tips-li">Removes leading and trailing white space</li>
+        <li class="tips-li">Returns a new string; does not modify the original string</li>
 
-        <h4>string.toUpperCase()</h4>
-        <li>Converts all characters in a string to uppercase</li>
-        <li>Returns a new string; does not modify the original string</li>
+        <h4 class="sytax-header-value">string.toUpperCase()</h4>
+        <li class="tips-li">Converts all characters in a string to uppercase</li>
+        <li class="tips-li">Returns a new string; does not modify the original string</li>
 
-        <h4>string.toLowerCase()</h4>
-        <li>Converts all characters in a string to uppercase</li>
-        <li>Returns a new string; does not modify the original string</li>
+        <h4 class="sytax-header-value">string.toLowerCase()</h4>
+        <li class="tips-li">Converts all characters in a string to uppercase</li>
+        <li class="tips-li">Returns a new string; does not modify the original string</li>
       </div>
     </div>
 
     <div class="syntax-container">
       <div class="syntax-container-header" onclick="toggleContent('numbers')">
-        <h3>Numbers</h3>
+        <h3 class="syntax-header-name">Numbers</h3>
         <img class="numbers-img" src="images/up-arrow.png">
       </div>
       <div class="syntax-container-content numbers-content">
-        <h4>Number(value)</h4>
-        <li>Converts a value to a number</li>
-        <li>Returns a new number; does not modify the original value</li>
+        <h4 class="sytax-header-value">Number(value)</h4>
+        <li class="tips-li">Converts a value to a number</li>
+        <li class="tips-li">Returns a new number; does not modify the original value</li>
 
-        <h4>Math.round(number)</h4>
-        <li>Rounds a number to the nearest integer, up or down</li>
-        <li>Returns a new number; does not modify the original value</li>
+        <h4 class="sytax-header-value">Math.round(number)</h4>
+        <li class="tips-li">Rounds a number to the nearest integer, up or down</li>
+        <li class="tips-li">Returns a new number; does not modify the original value</li>
 
-        <h4>Math.floor(number)</h4>
-        <li>Rounds a number down to the nearest integer</li>
-        <li>Returns a new number; does not modify the original value</li>
+        <h4 class="sytax-header-value">Math.floor(number)</h4>
+        <li class="tips-li">Rounds a number down to the nearest integer</li>
+        <li class="tips-li">Returns a new number; does not modify the original value</li>
 
-        <h4>Math.ceil(number)</h4>
-        <li>Rounds a number up to the nearest integer</li>
-        <li>Returns a new number; does not modify the original value</li>
+        <h4 class="sytax-header-value">Math.ceil(number)</h4>
+        <li class="tips-li">Rounds a number up to the nearest integer</li>
+        <li class="tips-li">Returns a new number; does not modify the original value</li>
 
-        <h4>Math.max(...arr) or Math.max(value1, value2, ...)</h4>
-        <li>Find the highest value in a set of values</li>
-        <li>Spread operator must be used when searching an array</li>
-        <li>Returns a new number; does not modify the original values</li>
-        <li>Returns NaN if at least one value cannot be ocnverted to a number</li>
+        <h4 class="sytax-header-value">Math.max(...arr) or Math.max(value1, value2, ...)</h4>
+        <li class="tips-li">Find the highest value in a set of values</li>
+        <li class="tips-li">Spread operator must be used when searching an array</li>
+        <li class="tips-li">Returns a new number; does not modify the original values</li>
+        <li class="tips-li">Returns NaN if at least one value cannot be ocnverted to a number</li>
 
-        <h4>Math.min(...arr) or Math.min(value1, value2, ...)</h4>
-        <li>Find the lowest value in a set of values</li>
-        <li>Spread operator must be used when searching an array</li>
-        <li>Returns a new number; does not modify the original values</li>
-        <li>Returns NaN if at least one value cannot be ocnverted to a number</li>
+        <h4 class="sytax-header-value">Math.min(...arr) or Math.min(value1, value2, ...)</h4>
+        <li class="tips-li">Find the lowest value in a set of values</li>
+        <li class="tips-li">Spread operator must be used when searching an array</li>
+        <li class="tips-li">Returns a new number; does not modify the original values</li>
+        <li class="tips-li">Returns NaN if at least one value cannot be ocnverted to a number</li>
       </div>
     </div>
 
     <div class="syntax-container">
       <div class="syntax-container-header" onclick="toggleContent('objects')">
-        <h3>Objects</h3>
+        <h3 class="syntax-header-name">Objects</h3>
         <img class="objects-img" src="images/up-arrow.png">
       </div>
       <div class="syntax-container-content objects-content">
-        <h4>object.property</h4>
-        <li>DOT Notation</li>
-        <li>Use when accessing an object where the property name is known</li>
-        <li>Creates a new property under the object if the property name does not exist</li>
+        <h4 class="sytax-header-value">object.property</h4>
+        <li class="tips-li">DOT Notation</li>
+        <li class="tips-li">Use when accessing an object where the property name is known</li>
+        <li class="tips-li">Creates a new property under the object if the property name does not exist</li>
 
-        <h4>object[property]</h4>
-        <li>Bracket Notation</li>
-        <li>Use when accessing an object where the property name is not known</li>
-        <li>Creates a new property under the object if the property name does not exist</li>
+        <h4 class="sytax-header-value">object[property]</h4>
+        <li class="tips-li">Bracket Notation</li>
+        <li class="tips-li">Use when accessing an object where the property name is not known</li>
+        <li class="tips-li">Creates a new property under the object if the property name does not exist</li>
 
-        <h4>Object.keys(objName)</h4>
-        <li>Returns an array of an objects property names</li>
-        <p>Example: const person = {firstName: 'Anthony', lastName: 'Ventura', age: 31} => const propertyKeys = Object.keys(person) => propertyKeys = ['firstName', 'lastName', 'age']</p>
+        <h4 class="sytax-header-value">objectName.hasOwnProperty('value')</h4>
+        <li class="tips-li">Checks whether an object has a specific property</li>
+        <li class="tips-li">Returns a boolean value</li>
 
-        <h4>Object.values(objName)</h4>
-        <li>Returns an array of an objects property values</li>
-        <p>Example: const person = {firstName: 'Anthony', lastName: 'Ventura', age: 31} => const propertyValues = Object.values(person) => propertyvalues = ['Anthony', 'Ventura', 31]</p>
+        <h4 class="sytax-header-value">Object.keys(objName)</h4>
+        <li class="tips-li">Returns an array of an objects property names</li>
+        <p class="tips-li">Example: const person = {firstName: 'Anthony', lastName: 'Ventura', age: 31} => const propertyKeys = Object.keys(person) => propertyKeys = ['firstName', 'lastName', 'age']</p>
 
-        <h4>Object.entries(objName)</h4>
-        <li>Returns an array containing sub arrays of the bojects property-value pairs</li>
-        <p>Example: const person = {firstName: 'Anthony', lastName: 'Ventura', age: 31} => const propertyPairs = Object.entries(person) => propertyPairs = [['firstName', 'Anthony'], ['lastName', 'Ventura'], ['age', 31]]</p>
+        <h4 class="sytax-header-value">Object.values(objName)</h4>
+        <li class="tips-li">Returns an array of an objects property values</li>
+        <p class="tips-li">Example: const person = {firstName: 'Anthony', lastName: 'Ventura', age: 31} => const propertyValues = Object.values(person) => propertyvalues = ['Anthony', 'Ventura', 31]</p>
 
-        <h4>Object.assign(target, ...sources)</h4>
-        <li>Copies properties and values from one or more objects to the target object</li>
-        <li>Creates shallow copies of nested objects (copies only the reference)</li>
-        <li>Returns a new object; the target object is not modified</li>
+        <h4 class="sytax-header-value">Object.entries(objName)</h4>
+        <li class="tips-li">Returns an array containing sub arrays of the bojects property-value pairs</li>
+        <p class="tips-li">Example: const person = {firstName: 'Anthony', lastName: 'Ventura', age: 31} => const propertyPairs = Object.entries(person) => propertyPairs = [['firstName', 'Anthony'], ['lastName', 'Ventura'], ['age', 31]]</p>
+
+        <h4 class="sytax-header-value">Object.assign(target, ...sources)</h4>
+        <li class="tips-li">Copies properties and values from one or more objects to the target object</li>
+        <li class="tips-li">Creates shallow copies of nested objects (copies only the reference)</li>
+        <li class="tips-li">Returns a new object; the target object is not modified</li>
       </div>
     </div>
 
     <div class="syntax-container">
       <div class="syntax-container-header" onclick="toggleContent('arrays')">
-        <h3>Arrays</h3>
+        <h3 class="syntax-header-name">Arrays</h3>
         <img class="arrays-img" src="images/up-arrow.png">
       </div>
       <div class="syntax-container-content arrays-content">
-        <h4>...arrayName</h4>
-        <li>Expands an array into individual values</li>
-        <li>Not using the spread operator only targets the reference the the array</li>
-        <p>Example: let array1 = [1, 2, 3], let array2 = [4, 5, 6] => arraysCombined = [...array1, ...array2] => arraysCombined = [1, 2, 3, 4, 5, 6]</p>
+        <h4 class="sytax-header-value">...arrayName</h4>
+        <li class="tips-li">Expands an array into individual values</li>
+        <li class="tips-li">Not using the spread operator only targets the reference the the array</li>
+        <p class="tips-li">Example: let array1 = [1, 2, 3], let array2 = [4, 5, 6] => arraysCombined = [...array1, ...array2] => arraysCombined = [1, 2, 3, 4, 5, 6]</p>
 
-        <h4>arrayName.sort() or arrayName.sort((a, b) => a - b)</h4>
-        <li>Sorts values in an array in ascending order</li>
-        <li>Use ((a, b) => a - b) when sorting numbers</li>
-        <li>Modifies the original array</li>
-        <p>Example: let numbers = [3, 1, 2] => numbers.sort() => numbers = [1, 2, 3]</p>
-        <p>Example: let letters = ['c', 'a', 'b'] => letters.sort() => letters = ['a', 'b', 'c']</p>
+        <h4 class="sytax-header-value">arrayName.sort() or arrayName.sort((a, b) => a - b)</h4>
+        <li class="tips-li">Sorts values in an array in ascending order</li>
+        <li class="tips-li">Use ((a, b) => a - b) when sorting numbers</li>
+        <li class="tips-li">Modifies the original array</li>
+        <p class="tips-li">Example: let numbers = [3, 1, 2] => numbers.sort() => numbers = [1, 2, 3]</p>
+        <p class="tips-li">Example: let letters = ['c', 'a', 'b'] => letters.sort() => letters = ['a', 'b', 'c']</p>
 
-        <h4>arrayName.sort((a, b) => b - a)</h4>
-        <li>Sorts values in an array in descending order</li>
-        <li>Modifies the original array</li>
+        <h4 class="sytax-header-value">arrayName.sort((a, b) => b - a)</h4>
+        <li class="tips-li">Sorts values in an array in descending order</li>
+        <li class="tips-li">Modifies the original array</li>
 
-        <h4>arrayName.reverse()</h4>
-        <li>Reverse the order of values in an array</li>
-        <li>Modifies the original array</li>
+        <h4 class="sytax-header-value">arrayName.reverse()</h4>
+        <li class="tips-li">Reverse the order of values in an array</li>
+        <li class="tips-li">Modifies the original array</li>
 
-        <h4>arrayName.includes(value, startIndex)</h4>
-        <li>Search if an arrays contained the given value</li>
-        <li>startIndex defines the index in the array to begin searching; it is optional</li>
-        <li>Returns a boolean</li>
+        <h4 class="sytax-header-value">arrayName.includes(value, startIndex)</h4>
+        <li class="tips-li">Search if an arrays contained the given value</li>
+        <li class="tips-li">startIndex defines the index in the array to begin searching; it is optional</li>
+        <li class="tips-li">Returns a boolean</li>
 
-        <h4>arrayName.unshift(value1, value2, ...array, array)</h4>
-        <li>Adds values to the beginning of an array</li>
-        <li>Modifies the original array</li>
+        <h4 class="sytax-header-value">arrayName.unshift(value1, value2, ...array, array)</h4>
+        <li class="tips-li">Adds values to the beginning of an array</li>
+        <li class="tips-li">Modifies the original array</li>
 
-        <h4>arrayName.shift()</h4>
-        <li>Removes the first value from an array</li>
-        <li>Modifies the original array</li>
-        <li>Optionally, returns the value removed</li>
+        <h4 class="sytax-header-value">arrayName.shift()</h4>
+        <li class="tips-li">Removes the first value from an array</li>
+        <li class="tips-li">Modifies the original array</li>
+        <li class="tips-li">Optionally, returns the value removed</li>
 
-        <h4>arrayName.push(value1, value2, ...array, array)</h4>
-        <li>Adds values to the end of an array</li>
-        <li>Modifies the original array</li>
+        <h4 class="sytax-header-value">arrayName.push(value1, value2, ...array, array)</h4>
+        <li class="tips-li">Adds values to the end of an array</li>
+        <li class="tips-li">Modifies the original array</li>
 
-        <h4>arrayName.pop()</h4>
-        <li>Removes the last value from an array</li>
-        <li>Modifies the original array</li>
-        <li>Optionally, returns the value removed</li>
+        <h4 class="sytax-header-value">arrayName.pop()</h4>
+        <li class="tips-li">Removes the last value from an array</li>
+        <li class="tips-li">Modifies the original array</li>
+        <li class="tips-li">Optionally, returns the value removed</li>
 
-        <h4>arrayName.splice(startIndex, deleteCount, value1, value2, ...)</h4>
-        <li>Remove or replaces values in an array</li>
-        <li>startIndex defines the position in the array to begin replace/remove; if negative then starts from the end</li>
-        <li>deleteCount defines the number of values to remove remove</li>
-        <li>values define the values to add starting from the startIndex; is optional</li>
-        <li>Optionally, returns an array of the values removed</li>
-        <p>Example: let groceries = ['eggs', 'ham', 'cheese', 'burger'] => groceries.splice(2, 1) => groceries = ['eggs', 'ham', 'burger']</p>
+        <h4 class="sytax-header-value">arrayName.splice(startIndex, deleteCount, value1, value2, ...)</h4>
+        <li class="tips-li">Remove or replaces values in an array</li>
+        <li class="tips-li">startIndex defines the position in the array to begin replace/remove; if negative then starts from the end</li>
+        <li class="tips-li">deleteCount defines the number of values to remove remove</li>
+        <li class="tips-li">values define the values to add starting from the startIndex; is optional</li>
+        <li class="tips-li">Optionally, returns an array of the values removed</li>
+        <p class="tips-li">Example: let groceries = ['eggs', 'ham', 'cheese', 'burger'] => groceries.splice(2, 1) => groceries = ['eggs', 'ham', 'burger']</p>
 
-        <h4>array.slice(startIndex, endIndex)</h4>
-        <li>Returns a shallow copy of array values</li>
-        <li>startIndex defines the the position in the array to begin copying; is optional</li>
-        <li>endIndex defines the position in the array to end copying; is optional</li>
+        <h4 class="sytax-header-value">array.slice(startIndex, endIndex)</h4>
+        <li class="tips-li">Returns a shallow copy of array values</li>
+        <li class="tips-li">startIndex defines the the position in the array to begin copying; is optional</li>
+        <li class="tips-li">endIndex defines the position in the array to end copying; is optional</li>
+
+        <h4 class="sytax-header-value">array1.concat(array2, array3, ...)</h4>
+        <li class="tips-li">Returns a new array with the combined values</li>
+
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('arraysA')">
+        <h3 class="syntax-header-name">Arrays - Advanced Methods</h3>
+        <img class="arraysA-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content arraysA-content">
+        <h4 class="sytax-header-value">array.forEach((element) => {code})</h4>
+        <li class="tips-li">Use to execute the same code on every element in an array</li>
+        <li class="tips-li">Does not modify the original or create a new array. Only runs the code.</li>
+        <p class="tips-li">Example: let originalArray = [1, 2, 3]; originalArray.forEach((num) => {console.log(num * 2)})</p>
+
+        <h4 class="sytax-header-value">array.map((arrVal) => arrVal * 2)</h4>
+        <li class="tips-li">Use to execute the same code on every element in an array</li>
+        <li class="tips-li">Returns a new array</li>
+        <p class="tips-li">Example: let originalArray = [1, 2, 3]; let newArray = originalArray.map((num) => num * 2)</p>
+
+        <h4 class="sytax-header-value">array.filter((arrVal) => arrVal === 2)</h4>
+        <li class="tips-li">Returns a new array containing the elements that meet the condition</li>
+        <p class="tips-li">Example: let originalArray = [1, 2, 3]; let newArray = originalArray.filter((num) => num === 2); newArray = [2]</p>
+      
+        <h4 class="sytax-header-value">array.find((Val) => Val === 2)</h4>
+        <li class="tips-li">Search an array for a value</li>
+        <li class="tips-li">Returns the first value found that meets condition</li>
+        <p class="tips-li">Example: let originalArray = [1, 2, 3]; let newArray = originalArray.map((num) => num * 2)</p>
+
+        <h4 class="sytax-header-value">array.findIndex((Val) => Val === 2)</h4>
+        <li class="tips-li">Same as .find() except returns the index number</li>
+
       </div>
     </div>
 
     <div class="syntax-container">
       <div class="syntax-container-header" onclick="toggleContent('loops')">
-        <h3>Loops</h3>
+        <h3 class="syntax-header-name">Loops</h3>
         <img class="loops-img" src="images/up-arrow.png">
       </div>
       <div class="syntax-container-content loops-content">
@@ -209,7 +248,7 @@
 
     <div class="syntax-container">
       <div class="syntax-container-header" onclick="toggleContent('events')">
-        <h3>Events</h3>
+        <h3 class="syntax-header-name">Events</h3>
         <img class="events-img" src="images/up-arrow.png">
       </div>
       <div class="syntax-container-content events-content">
@@ -218,51 +257,71 @@
     </div>
 
     <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('api')">
+        <h3 class="syntax-header-name">APIs</h3>
+        <img class="api-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content api-content">
+        
+      </div>
+    </div>
+
+    <div class="syntax-container">
       <div class="syntax-container-header" onclick="toggleContent('storage')">
-        <h3>Storage</h3>
+        <h3 class="syntax-header-name">Storage</h3>
         <img class="storage-img" src="images/up-arrow.png">
       </div>
       <div class="syntax-container-content storage-content">
-        <h4>JSON.stringify(value)</h4>
-        <li>Converts an javascript object or value into a JSON string</li>
+        <h4 class="sytax-header-value">JSON.stringify(value)</h4>
+        <li class="tips-li">Converts an javascript object or value into a JSON string</li>
 
-        <h4>JSON.parse()</h4>
-        <li>Converts JSON strings into an javascript object</li>
+        <h4 class="sytax-header-value">JSON.parse()</h4>
+        <li class="tips-li">Converts JSON strings into an javascript object</li>
         
-        <h4>localStorage.setItem('key', JSON.stringify(value))</h4>
-        <li>Saves a value into the browser's local storage</li>
-        <li>Key is the name of the file</li>
+        <h4 class="sytax-header-value">localStorage.setItem('key', JSON.stringify(value))</h4>
+        <li class="tips-li">Saves a value into the browser's local storage</li>
+        <li class="tips-li">Key is the name of the file</li>
 
-        <h4>JSON.parse(localStorage.getItem('key'))</h4>
-        <li>Loads a value into the html page</li>
+        <h4 class="sytax-header-value">JSON.parse(localStorage.getItem('key'))</h4>
+        <li class="tips-li">Loads a value into the html page</li>
 
-        <h4>localStorage.removeItem('key')</h4>
-        <li>Remove a value from local storage</li>
+        <h4 class="sytax-header-value">localStorage.removeItem('key')</h4>
+        <li class="tips-li">Remove a value from local storage</li>
 
-        <h4>sessionStorage</h4>
+        <h4 class="sytax-header-value">sessionStorage</h4>
       </div>
     </div>
 
     <div class="syntax-container">
       <div class="syntax-container-header" onclick="toggleContent('dom')">
-        <h3>DOM/Elements</h3>
+        <h3 class="syntax-header-name">DOM/Elements</h3>
         <img class="dom-img" src="images/up-arrow.png">
       </div>
       <div class="syntax-container-content dom-content">
-        <h4>element.classList.add('class-name')</h4>
+        <h4 class="sytax-header-value">element.classList.add('class-name')</h4>
 
-        <h4>element.classList.remove('class-name')</h4>
+        <h4 class="sytax-header-value">element.classList.remove('class-name')</h4>
 
-        <h4>element.classList.contains('class-name')</h4>
+        <h4 class="sytax-header-value">element.classList.contains('class-name')</h4>
       </div>
     </div>
 
     <div class="syntax-container">
       <div class="syntax-container-header" onclick="toggleContent('css')">
-        <h3>CSS</h3>
+        <h3 class="syntax-header-name">CSS</h3>
         <img class="css-img" src="images/up-arrow.png">
       </div>
       <div class="syntax-container-content css-content">
+        
+      </div>
+    </div>
+
+    <div class="syntax-container">
+      <div class="syntax-container-header" onclick="toggleContent('node')">
+        <h3 class="syntax-header-name">Node.js</h3>
+        <img class="node-img" src="images/up-arrow.png">
+      </div>
+      <div class="syntax-container-content node-content">
         
       </div>
     </div>

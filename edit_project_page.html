@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Project</title>
+  <title>Edit Project</title>
   <link rel="stylesheet" href="styles/page_frame.css">
-  <link rel="stylesheet" href="styles/new_project_page.css">
+  <link rel="stylesheet" href="styles/edit_project_page.css">
 </head>
 <body>  
   <div class="page-frame-logo">
@@ -13,7 +13,7 @@
   </div>
 
   <div class="page-frame-title">
-    New Project
+    Edit Project
   </div>
 
   <nav class="page-frame-nav">
@@ -98,15 +98,13 @@
         <textarea rows="15" id="acceptance" placeholder="Enter acceptance criteria"></textarea>
       </div>
       <div class="button-container field-container-span3">
-        <button type="reset" onclick="resetFields()">Reset</button>
-        <button type="button" onclick="logProjects()">Log Projects</button>
-        <button type="button" onclick="deleteProjects()">Delete Project File</button>
-        <button type="submit" onclick="createProject()">Submit</button>
+        <button type="button" onclick="loadPage('projects')">Cancel</button>
+        <button type="submit" onclick="saveDetails()">Save</button>
       </div>
     </div>
   </div>
 
   <script src="scripts/page_frame.js"></script>
-  <script src="scripts/new_project_page.js"></script>
+  <script src="scripts/edit_project_page.js"></script>
 </body>
 </html>

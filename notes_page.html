@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notes</title>
   <link rel="stylesheet" href="styles/page_frame.css">
+  <link rel="stylesheet" href="styles/notes_page.css">
 </head>
 <body>
   
@@ -16,15 +17,31 @@
   </div>
   <nav class="page-frame-nav">
     <li class="page-frame-nav-li" onclick="loadPage('home')">Home</li>
-    <li class="page-frame-nav-li" onclick="loadPage('todo')">Todo List</li>
-    <li class="page-frame-nav-li-active" onclick="loadPage('notes')">Notes</li>
+    <li class="page-frame-nav-li" onclick="loadPage('tasks')">Tasks</li>
     <li class="page-frame-nav-li" onclick="loadPage('projects')">Projects</li>
+    <li class="page-frame-nav-li-active" onclick="loadPage('notes')">Notes</li>
     <li class="page-frame-nav-li" onclick="loadPage('cheatsheet')">Cheatsheet</li>
   </nav>
   <div class="page-frame-content">
-    content here
+    
+    <div class="notes-container">
+      <div class="pages-container">
+        <div class="button-container">
+          <button class="page-add-button" onclick="addPageElement()">Add Page +</button>
+        </div>
+        <div class="list-container">
+          <ul class="page-list">
+           
+          </ul>
+        </div>
+      </div>
+      <div class="content-container">
+
+      </div>
+    </div>
   </div>
 
   <script src="scripts/page_frame.js"></script>
+  <script src="scripts/notes_page.js"></script>
 </body>
 </html>
