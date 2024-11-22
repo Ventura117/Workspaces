@@ -1,0 +1,137 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 70px auto;
+  background-color: #F4F4F4;
+  color: #333333;
+}
+
+.layout-header {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #CCCCCC;
+  background-color: #4A4A4A;
+  color: #FFFFFF;
+  padding: 16px;
+}
+
+.layout-header h1 {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.layout-taskbar {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 12px;
+  border-bottom: 1px solid #E0E0E0;
+  background-color: #FAFAFA;
+}
+
+.layout-taskbar-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  padding-left: 16px;
+}
+.layout-taskbar-right {
+  display: flex;
+  width: 450px;
+}
+.display-theme-select {
+  height: 35px;
+  font-size: 11px;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease;
+  padding-left: 2px;
+}
+
+.layout-taskbar-search {
+  height: 35px;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 18px;
+  padding-left: 14px;
+  border: 1px solid #CCCCCC;
+  background-color: #FFFFFF;
+  color: #333333;
+  margin-left: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.layout-taskbar-search:focus,
+.display-theme-select:focus {
+  border: 1px solid #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.layout-nav {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background-color: #EAEAEA;
+  padding: 12px 0;
+}
+
+.layout-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.layout-nav-item {
+  margin-bottom: 8px;
+  user-select: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.layout-nav-item a {
+  text-decoration: none;
+  display: block;
+  padding: 10px 16px;
+  color: #333333;
+  border-radius: 4px;
+}
+
+.layout-nav-item:hover a {
+  background-color: #D6D6D6;
+  color: #007BFF;
+}
+
+.layout-nav-item-selected a {
+  background-color: #007BFF;
+  color: #FFFFFF;
+}
+
+.layout-nav-item-selected:hover a {
+  background-color: #0056b3;
+}
+
+.layout-main {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  padding: 16px;
+  border-left: 1px solid #E0E0E0;
+  background-color: #FFFFFF;
+  color: #333333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
