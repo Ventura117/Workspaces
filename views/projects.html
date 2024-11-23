@@ -18,7 +18,6 @@
     <h2 class="layout-taskbar-title">Projects</h2>
     <div class="layout-taskbar-right">
       <select class="display-theme-select">
-
       </select>
       <input class="layout-taskbar-search" type="search" placeholder="Search...">
     </div>    
@@ -32,7 +31,36 @@
     </ul>
   </nav>
   <main class="layout-main">
-    
+    <header class="table-header">
+      <select name="" id="">
+        <option value="">Not Started</option>
+        <option value="">In Progress</option>
+        <option value="">Complete</option>
+        <option value="">Dev Complete</option>
+        <option value="">Canceled</option>
+      </select>
+      <div class="table-header-right">
+        <button>Export</button>
+        <button>+ Add New</button>
+      </div>
+    </header>
+    <table class="projects-table">
+      <thead>
+        <tr class="table-header-row">
+          <th style="width: 95px">ID</th>
+          <th style="width: 95px">Azure ID</th>
+          <th style="text-align: left">Name</th>
+          <th style="text-align: left">Title</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Assignee</th>
+          <th>Due Date</th>
+        </tr>
+      </thead>
+      <tbody class="projects-table-body">
+        
+      </tbody>
+    </table>
   </main>
   <script src="http://localhost:3000/scripts/layout"></script>
   <script src="http://localhost:3000/scripts/projects"></script>

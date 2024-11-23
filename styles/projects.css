@@ -1,0 +1,118 @@
+.layout-main {
+  padding: 12px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 8px;
+  background-color: #F8F8F8;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+}
+
+.table-header select {
+  font-size: 14px;
+  padding: 8px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+}
+
+.table-header button {
+  font-size: 14px;
+  padding: 8px 16px;
+  margin-left: 8px;
+  border: none;
+  background-color: #007BFF;
+  color: #FFFFFF;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.table-header button:hover {
+  background-color: #0056b3;
+}
+
+/* Projects Table */
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.projects-table thead {
+  background-color: #007BFF;
+  color: #FFFFFF;
+}
+
+.table-header-row th {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.projects-table tbody tr {
+  border-bottom: 1px solid #E0E0E0;
+  transition: background-color 0.2s ease;
+}
+
+.projects-table tbody tr:hover {
+  background-color: #F9F9F9;
+}
+
+.projects-table td {
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* Links within the table */
+.projects-table a {
+  color: #007BFF;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.projects-table a:hover {
+  color: #0056b3;
+}
+
+/* Dropdown for status */
+.projects-table select {
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .table-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .table-header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .projects-table thead {
+    font-size: 12px;
+  }
+
+  .projects-table td {
+    font-size: 12px;
+  }
+}

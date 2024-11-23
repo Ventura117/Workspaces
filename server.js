@@ -137,7 +137,16 @@ const server = http.createServer((req, res) => {
     })
   }
   else if (req.method === 'GET' && req.url === '/projects/get_projects') {  // Automatic - GET - Projects list
-
+    client.query('SELECT * FROM projects', (err, result) => {
+      if (err) {
+        res.statusCode = 500;
+        res.end('error')
+      } else {
+        res.statusCode = 200;
+        console.log('Sending:  projects data')
+        res.end(JSON.stringify(result.rows))
+      }
+    })
   }
   else if (req.method === 'POST' && req.url === '/projects/update_project') {  // Clicked dropdown - POST - Status dropdown
 
