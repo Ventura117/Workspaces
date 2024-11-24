@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:3000/styles/layout">  
+  <link rel="stylesheet" href="http://localhost:3000/styles/add_project">  
+</head>
+<body>
+  <div class="layout-header">
+    <h1>Workspaces</h1>
+  </div>
+  <div class="layout-taskbar">
+    <h2 class="layout-taskbar-title">Add Project</h2>
+    <div class="layout-taskbar-right">
+      <select class="display-theme-select">
+      </select>
+      <input class="layout-taskbar-search" type="search" placeholder="Search...">
+    </div>    
+  </div>
+  <nav class="layout-nav">
+    <ul class="layout-nav-list">
+      <li class="layout-nav-item"><a href="http://localhost:3000/home">Home</a></li>
+      <li class="layout-nav-item layout-nav-item-selected"><a href="http://localhost:3000/projects">Projects</a></li>
+      <li class="layout-nav-item"><a href="http://localhost:3000/notes">Notes</a></li>
+      <li class="layout-nav-item"><a href="http://localhost:3000/wiki">Wiki</a></li>
+    </ul>
+  </nav>
+  <main class="layout-main">
+    <div class="form-header">
+      <div class="form-header-left">
+        <button>- Hide Details</button>
+        <button>+ Show Details</button>
+      </div>
+      <div class="form-header-right">
+        <button>Comments</button>
+        <button>Manage</button>
+      </div>
+    </div>
+    <form class="form-container">
+      <div class="form-input-container-s">
+        <label for="">Zendesk Id:</label>
+        <input type="text">
+      </div>
+
+      <div class="form-input-container-s">
+        <label for="">Azure Id:</label>
+        <input type="text">
+      </div>
+      
+      <div class="form-input-container-s">
+        <label for="">Status:</label>
+        <select name="" id="">
+          <option value="" selected>Not Started</option>
+          <option value="">In Progress</option>
+          <option value="">Complete</option>
+          <option value="">Dev Complete</option>
+          <option value="">Canceled</option>
+        </select>
+      </div>
+
+      <div class="form-input-container-s">
+        <label for="">Sponsor:</label>
+        <input type="text">
+      </div>
+
+      <div class="form-input-container-s">
+        <label for="">Priority:</label>
+        <select name="" id="">
+          <option value="">0</option>
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="" selected>3</option>
+        </select>
+      </div>
+
+      <div class="form-input-container-s">
+        <label for="">Assignee:</label>
+        <select name="" id="">
+          <option value="">Tony</option>
+          <option value="">Greg</option>
+        </select>
+      </div>
+
+      <div class="form-input-container-m">
+        <label for="">Name:</label>
+        <input type="text">
+      </div>
+
+      <div class="form-input-container-s">
+        <label for="">Due Date:</label>
+        <input type="date">
+      </div>
+
+      <div class="form-input-container-l">
+        <label for="">Title:</label>
+        <input type="text">
+      </div>
+
+      <div class="form-input-container-l">
+        <label for="">Description:</label>
+        <textarea name="" id=""></textarea>
+      </div>
+
+      <div class="form-input-container-l">
+        <label for="">Acceptance:</label>
+        <textarea name="" id=""></textarea>
+      </div>
+
+    </form>
+    <div class="form-footer">
+      <button>Cancel</button>
+      <button>Submit</button>
+    </div>
+  </main>
+  <script src="http://localhost:3000/scripts/layout"></script>
+  <script src="http://localhost:3000/scripts/add_project"></script>
+</body>
+</html>

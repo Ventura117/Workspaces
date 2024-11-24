@@ -88,6 +88,20 @@ const server = http.createServer((req, res) => {
 
 
   // Projects page routes
+  // GOOD
+  else if (req.method === 'GET' && req.url === '/projects/get_projects') {  // Automatic - GET - Projects list
+    client.query('SELECT * FROM projects', (err, result) => {
+      if (err) {
+        res.statusCode = 500;
+        res.end('error')
+      } else {
+        res.statusCode = 200;
+        console.log('Sending:  projects data')
+        res.end(JSON.stringify(result.rows))
+      }
+    })
+  }
+  // GOOD
   else if (req.method === 'GET' && req.url === '/projects') {  // Typed link
     filePath = './views/projects.html'
     fs.readFile(filePath, (err, data) => {
@@ -104,6 +118,7 @@ const server = http.createServer((req, res) => {
       }
     })
   } 
+  // GOOD
   else if (req.method === 'GET' && req.url === '/styles/projects') {  // Automatic
     filePath = './styles/projects.css'
     fs.readFile(filePath, (err, data) => {
@@ -120,6 +135,7 @@ const server = http.createServer((req, res) => {
       }
     })
   }
+  // GOOD
   else if (req.method === 'GET' && req.url === '/scripts/projects') {  // Automatic
     filePath = './scripts/projects.js'
     fs.readFile(filePath, (err, data) => {
@@ -136,27 +152,66 @@ const server = http.createServer((req, res) => {
       }
     })
   }
-  else if (req.method === 'GET' && req.url === '/projects/get_projects') {  // Automatic - GET - Projects list
-    client.query('SELECT * FROM projects', (err, result) => {
+
+  // Add project page routes
+  else if (req.method === 'GET' && req.url === '/projects/add_project') {  // Typed link - Clicked href
+    filePath = './views/add_project.html'
+    fs.readFile(filePath, (err, data) => {
       if (err) {
-        res.statusCode = 500;
-        res.end('error')
+        console.log('Error reading: ', filePath);
+        res.statusCode = 400;
+        res.setHeader('Content-Type', 'text/html');
+        res.end('Error loading HTML!')
       } else {
+        console.log('Sending: ', filePath)
         res.statusCode = 200;
-        console.log('Sending:  projects data')
-        res.end(JSON.stringify(result.rows))
+        res.setHeader('Content-Type', 'text/html');
+        res.end(data)
       }
     })
   }
-  else if (req.method === 'POST' && req.url === '/projects/update_project') {  // Clicked dropdown - POST - Status dropdown
+  else if (req.method === 'GET' && req.url === '/styles/add_project') {  // Automatic
+    filePath = './styles/add_project.css'
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        console.log('Error reading: ', filePath);
+        res.statusCode = 400;
+        res.setHeader('Content-Type', 'text/html');
+        res.end('Error loading file!')
+      } else {
+        console.log('Sending: ', filePath)
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/css');
+        res.end(data)
+      }
+    })
+  }
+  else if (req.method === 'GET' && req.url === '/scripts/add_project') {  // Automatic
+    filePath = './scripts/add_project.js'
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        console.log('Error reading: ', filePath);
+        res.statusCode = 400;
+        res.setHeader('Content-Type', 'text/html');
+        res.end('Error loading file!')
+      } else {
+        console.log('Sending: ', filePath)
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/javascript');
+        res.end(data)
+      }
+    })
+  }
+  else if (req.method === 'POST' && req.url === '/projects/create_project') {  // Clicked button - POST - Add project button
 
   }
+
 
   // Edit project page routes
-  else if (req.method === 'GET' && req.url === '/projects/edit/{projectId}') {  // Typed link - Clicked href
+  else if (req.method === 'GET' && req.url === '/projects/edit_project') {  // Typed link - Clicked href
 
   }
-  else if (req.method === 'GET' && req.url === '/styles/edit') {  // Automatic
+  else if (req.method === 'GET' && req.url === '/styles/edit_project') {  // Automatic
 
   }
   else if (req.method === 'GET' && req.url === '/scripts/edit') {  // Automatic
@@ -169,20 +224,6 @@ const server = http.createServer((req, res) => {
 
   }
   else if (req.method === 'DELETE' && req.url === '/projects/edit/delete_project') {
-
-  }
-
-  // Add project page routes
-  else if (req.method === 'GET' && req.url === '/projects/add') {  // Typed link - Clicked href
-
-  }
-  else if (req.method === 'GET' && req.url === '/styles/add') {  // Automatic
-
-  }
-  else if (req.method === 'GET' && req.url === '/scripts/add') {  // Automatic
-
-  }
-  else if (req.method === 'POST' && req.url === '/projects/add/add_project') {  // Clicked button - POST - Add project button
 
   }
 
