@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const { Client } = require('pg');
+const { URLSearchParams } = require('url');
 
 const client = new Client({
   user: 'postgres',
@@ -203,7 +204,16 @@ const server = http.createServer((req, res) => {
     })
   }
   else if (req.method === 'POST' && req.url === '/projects/create_project') {  // Clicked button - POST - Add project button
-
+    let body = '';
+    req.on('data', (chunk) => {
+      body += chunk.toString();
+    });
+    req.on('end', () => {
+      const formData = new URLSearchParams(body)
+      console.log(formData);
+      res.statusCode = 200;
+      res.end('Success')
+    })
   }
 
 

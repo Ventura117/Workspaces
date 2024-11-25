@@ -41,81 +41,82 @@
         <button>Manage</button>
       </div>
     </div>
-    <form class="form-container">
+    <form class="form-container" action="http://localhost:3000/projects/create_project" method="POST">
       <div class="form-input-container-s">
-        <label for="">Zendesk Id:</label>
-        <input type="text">
+        <label for="azure-id">Zendesk Id:</label>
+        <input type="text" id="zendesk-id" required>
       </div>
 
       <div class="form-input-container-s">
-        <label for="">Azure Id:</label>
-        <input type="text">
+        <label for="azire-id">Azure Id:</label>
+        <input type="text" id="azure-id">
       </div>
       
       <div class="form-input-container-s">
-        <label for="">Status:</label>
-        <select name="" id="">
-          <option value="" selected>Not Started</option>
-          <option value="">In Progress</option>
-          <option value="">Complete</option>
-          <option value="">Dev Complete</option>
-          <option value="">Canceled</option>
+        <label for="status">Status:</label>
+        <select name="status" id="status" required>
+          <option value="Not Started" selected>Not Started</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Complete">Complete</option>
+          <option value="Dev Complete">Dev Complete</option>
+          <option value="Canceled">Canceled</option>
         </select>
       </div>
 
       <div class="form-input-container-s">
-        <label for="">Sponsor:</label>
-        <input type="text">
+        <label for="sponsor">Sponsor:</label>
+        <input type="text" id="sponsor">
       </div>
 
       <div class="form-input-container-s">
-        <label for="">Priority:</label>
-        <select name="" id="">
-          <option value="">0</option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="" selected>3</option>
+        <label for="priority">Priority:</label>
+        <select name="priority" id="priority" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
         </select>
       </div>
 
       <div class="form-input-container-s">
-        <label for="">Assignee:</label>
-        <select name="" id="">
-          <option value="">Tony</option>
-          <option value="">Greg</option>
+        <label for="assignee">Assignee:</label>
+        <select name="assignee" id="assignee">
+          <option value=""></option>
+          <option value="Tony">Tony</option>
+          <option value="Greg">Greg</option>
         </select>
       </div>
 
       <div class="form-input-container-m">
-        <label for="">Name:</label>
-        <input type="text">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
       </div>
 
       <div class="form-input-container-s">
-        <label for="">Due Date:</label>
-        <input type="date">
+        <label for="date">Due Date:</label>
+        <input type="date" name="date">
       </div>
 
       <div class="form-input-container-l">
-        <label for="">Title:</label>
-        <input type="text">
+        <label for="title">Title:</label>
+        <input type="text" id="title" required>
       </div>
 
       <div class="form-input-container-l">
-        <label for="">Description:</label>
-        <textarea name="" id=""></textarea>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"></textarea>
       </div>
 
       <div class="form-input-container-l">
-        <label for="">Acceptance:</label>
-        <textarea name="" id=""></textarea>
+        <label for="Acceptance">Acceptance:</label>
+        <textarea name="Acceptance" id="Acceptance"></textarea>
       </div>
-
+      <div class="form-footer">
+        <button type="">Cancel</button>
+        <button type="submit" >Submit</button>
+      </div>
     </form>
-    <div class="form-footer">
-      <button>Cancel</button>
-      <button>Submit</button>
-    </div>
+
   </main>
   <script src="http://localhost:3000/scripts/layout"></script>
   <script src="http://localhost:3000/scripts/add_project"></script>
