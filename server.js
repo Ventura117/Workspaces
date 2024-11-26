@@ -31,6 +31,7 @@ const server = http.createServer((req, res) => {
         res.setHeader('Content-Type', 'text/html');
         res.end('Error loading HTML!')
       } else {
+        console.log('~~~ NEW PAGE ~~~')
         console.log('Sending: ', filePath)
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
@@ -47,6 +48,7 @@ const server = http.createServer((req, res) => {
         res.setHeader('Content-Type', 'text/html');
         res.end('Error loading HTML!')
       } else {
+        console.log('~~~ NEW PAGE ~~~')
         console.log('Sending: ', filePath)
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
@@ -112,6 +114,7 @@ const server = http.createServer((req, res) => {
         res.setHeader('Content-Type', 'text/html');
         res.end('Error loading HTML!')
       } else {
+        console.log('~~~ NEW PAGE ~~~')
         console.log('Sending: ', filePath)
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
@@ -155,6 +158,7 @@ const server = http.createServer((req, res) => {
   }
 
   // Add project page routes
+  // GOOD
   else if (req.method === 'GET' && req.url === '/projects/add_project') {  // Typed link - Clicked href
     filePath = './views/add_project.html'
     fs.readFile(filePath, (err, data) => {
@@ -164,6 +168,7 @@ const server = http.createServer((req, res) => {
         res.setHeader('Content-Type', 'text/html');
         res.end('Error loading HTML!')
       } else {
+        console.log('~~~ NEW PAGE ~~~')
         console.log('Sending: ', filePath)
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
@@ -171,6 +176,7 @@ const server = http.createServer((req, res) => {
       }
     })
   }
+  // GOOD
   else if (req.method === 'GET' && req.url === '/styles/add_project') {  // Automatic
     filePath = './styles/add_project.css'
     fs.readFile(filePath, (err, data) => {
@@ -187,6 +193,7 @@ const server = http.createServer((req, res) => {
       }
     })
   }
+  // GOOD
   else if (req.method === 'GET' && req.url === '/scripts/add_project') {  // Automatic
     filePath = './scripts/add_project.js'
     fs.readFile(filePath, (err, data) => {
@@ -203,6 +210,7 @@ const server = http.createServer((req, res) => {
       }
     })
   }
+  // GOOD - need insert query
   else if (req.method === 'POST' && req.url === '/projects/create_project') {  // Clicked button - POST - Add project button
     let body = '';
     req.on('data', (chunk) => {
@@ -212,22 +220,22 @@ const server = http.createServer((req, res) => {
       const formData = new URLSearchParams(body)
       console.log(formData);
       res.statusCode = 200;
-      res.end('Success')
+      res.end('CREATED Success')
     })
   }
 
 
   // Edit project page routes
+  else if (req.method === 'GET' && req.url === '/projects/edit/get_project') {  // Automatic - GET - Project details
+
+  }
   else if (req.method === 'GET' && req.url === '/projects/edit_project') {  // Typed link - Clicked href
 
   }
   else if (req.method === 'GET' && req.url === '/styles/edit_project') {  // Automatic
 
   }
-  else if (req.method === 'GET' && req.url === '/scripts/edit') {  // Automatic
-
-  }
-  else if (req.method === 'GET' && req.url === '/projects/edit/get_project') {  // Automatic - GET - Project details
+  else if (req.method === 'GET' && req.url === '/scripts/edit_project') {  // Automatic
 
   }
   else if (req.method === 'POST' && req.url === '/projects/edit/update_project') {  // Clicked button - POST - Update project details
@@ -248,6 +256,7 @@ const server = http.createServer((req, res) => {
         res.setHeader('Content-Type', 'text/html');
         res.end('Error loading HTML!')
       } else {
+        console.log('~~~ NEW PAGE ~~~')
         console.log('Sending: ', filePath)
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
@@ -310,6 +319,7 @@ const server = http.createServer((req, res) => {
         res.setHeader('Content-Type', 'text/html');
         res.end('Error loading HTML!')
       } else {
+        console.log('~~~ NEW PAGE ~~~')
         console.log('Sending: ', filePath)
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');

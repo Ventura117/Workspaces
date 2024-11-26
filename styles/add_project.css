@@ -52,6 +52,10 @@
   font-size: 14px;
 }
 
+#date {
+  cursor: pointer;
+}
+
 /* Span Columns */
 .form-input-container-m {
   grid-column: span 2;
@@ -59,6 +63,14 @@
 
 .form-input-container-l {
   grid-column: span 3;
+}
+
+.form-input-container-l textarea {
+  resize: vertical;
+}
+
+#acceptance {
+  height: 200px;
 }
 
 /* Form Footer */
@@ -91,4 +103,8 @@
 
 .form-footer button:first-child:hover {
   background-color: #999;
+}
+
+.hidden {
+  display: none;
 }
