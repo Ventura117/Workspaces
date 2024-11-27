@@ -23,7 +23,7 @@ function renderProjects() {
       tableRow.appendChild(projectId);
     const projectIdLink = document.createElement('a');
       projectIdLink.textContent = project.project_id;
-      projectIdLink.href = '';
+      projectIdLink.href = 'http://localhost:3000/projects/edit_project';
       projectId.appendChild(projectIdLink);
     const azureIdLink = document.createElement('td');
       azureIdLink.textContent = project.azure_id;

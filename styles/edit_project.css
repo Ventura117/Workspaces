@@ -1,0 +1,110 @@
+/* Form Header */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-header button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.form-header button:hover {
+  background-color: #0056b3;
+}
+
+/* Form Container */
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.form-input-container-s,
+.form-input-container-m,
+.form-input-container-l {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input and Label Styling */
+.form-input-container-s label,
+.form-input-container-m label,
+.form-input-container-l label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.form-input-container-s input,
+.form-input-container-m input,
+.form-input-container-l input,
+.form-input-container-s select,
+.form-input-container-l textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#date {
+  cursor: pointer;
+}
+
+/* Span Columns */
+.form-input-container-m {
+  grid-column: span 2;
+}
+
+.form-input-container-l {
+  grid-column: span 3;
+}
+
+.form-input-container-l textarea {
+  resize: vertical;
+}
+
+#acceptance {
+  height: 200px;
+}
+
+/* Form Footer */
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: span 3;
+  margin-top: 6px;
+}
+
+.form-footer button {
+  padding: 9px 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 12px;
+}
+
+.form-footer button:hover {
+  background-color: #0056b3;
+}
+
+.form-footer button:first-child {
+  background-color: #ccc;
+  color: #333;
+}
+
+.form-footer button:first-child:hover {
+  background-color: #999;
+}
+
+.hidden {
+  display: none;
+}

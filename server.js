@@ -217,26 +217,105 @@ const server = http.createServer((req, res) => {
       body += chunk.toString();
     });
     req.on('end', () => {
-      const formData = new URLSearchParams(body)
-      console.log(formData);
-      res.statusCode = 200;
-      res.end('CREATED Success')
-    })
+      const formData = new URLSearchParams(body);
+  
+      // Extract values
+      const zendeskId = formData.get('zendesk_id') || null;
+      const azureId = formData.get('azure_id') || null;
+      const status = formData.get('status') || null;
+      const sponsor = formData.get('sponsor') || null;
+      const priority = formData.get('priority') || null;
+      const assignee = formData.get('assignee') || null;
+      const projectName = formData.get('project_name') || null;
+      const dueDate = formData.get('due_date') || null;
+      const projectTitle = formData.get('project_title') || null;
+      const projectDescription = formData.get('project_description') || null;
+      const acceptance = formData.get('acceptance') || null;
+  
+      const query = `
+        INSERT INTO projects (
+          zendesk_id, azure_id, status, sponsor, priority,
+          assignee, project_name, due_date, project_title,
+          project_description, acceptance
+        )
+        VALUES (
+          $1, $2, $3, $4, $5,
+          $6, $7, $8, $9, $10, $11
+        )
+      `;
+      const values = [
+        zendeskId, azureId, status, sponsor, priority,
+        assignee, projectName, dueDate, projectTitle,
+        projectDescription, acceptance,
+      ];
+  
+      // Execute query using .then()
+      client.query(query, values)
+        .then(() => {
+          res.statusCode = 201; // Created
+          res.end('Project created successfully.');
+        })
+        .catch((err) => {
+          console.error('Error inserting project:', err);
+          res.statusCode = 500;
+          res.end('Failed to create project.');
+        });
+    });
   }
 
 
   // Edit project page routes
   else if (req.method === 'GET' && req.url === '/projects/edit/get_project') {  // Automatic - GET - Project details
-
+    
   }
   else if (req.method === 'GET' && req.url === '/projects/edit_project') {  // Typed link - Clicked href
-
-  }
+    filePath = './views/edit_project.html'
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        console.log('Error reading: ', filePath);
+        res.statusCode = 400;
+        res.setHeader('Content-Type', 'text/html');
+        res.end('Error loading HTML!')
+      } else {
+        console.log('~~~ NEW PAGE ~~~')
+        console.log('Sending: ', filePath)
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/html');
+        res.end(data)
+      }
+    })
+  } 
   else if (req.method === 'GET' && req.url === '/styles/edit_project') {  // Automatic
-
+    filePath = './styles/edit_project.css'
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        console.log('Error reading: ', filePath);
+        res.statusCode = 400;
+        res.setHeader('Content-Type', 'text/html');
+        res.end('Error loading file!')
+      } else {
+        console.log('Sending: ', filePath)
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/css');
+        res.end(data)
+      }
+    })
   }
   else if (req.method === 'GET' && req.url === '/scripts/edit_project') {  // Automatic
-
+    filePath = './scripts/edit_project.js'
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        console.log('Error reading: ', filePath);
+        res.statusCode = 400;
+        res.setHeader('Content-Type', 'text/html');
+        res.end('Error loading file!')
+      } else {
+        console.log('Sending: ', filePath)
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/javascript');
+        res.end(data)
+      }
+    })
   }
   else if (req.method === 'POST' && req.url === '/projects/edit/update_project') {  // Clicked button - POST - Update project details
 
