@@ -88,6 +88,24 @@ const server = http.createServer((req, res) => {
       }
     })
   }
+  else if (req.method === 'GET' && req.url === '/home/get_weather') {
+    const weatherKey = 'c7f9faa1920dc7b5cb186959c5113192';
+    const zipCode = 45244;
+    const countryCode = 'us';
+    
+    fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},${countryCode}&appid=${weatherKey}&units=imperial`)
+      .then(response => response.json())
+      .then((data, err) => {
+        if (err) {
+          res.statusCode = 200;
+          res.end('Cannot get weather: ', err)
+        } else {
+          res.statusCode = 200;
+          res.end(JSON.stringify(data))
+        }
+      })
+      
+  }
 
 
   // Projects page routes
@@ -265,10 +283,20 @@ const server = http.createServer((req, res) => {
 
 
   // Edit project page routes
-  else if (req.method === 'GET' && req.url === '/projects/edit/get_project') {  // Automatic - GET - Project details
-    
+  else if (req.method === 'GET' && req.url.startsWith('/projects/get_project')) {  // Automatic - GET - Project details
+    const projectId = req.url.split('/').pop();
+    client.query('SELECT * FROM projects WHERE project_id = $1', [projectId], (err, result) => {
+      if (err) {
+        res.statusCode = 500;
+        res.end('error')
+      } else {
+        res.statusCode = 200;
+        console.log(`Sending project ${projectId} data`)
+        res.end(JSON.stringify(result.rows[0]))
+      }
+    })
   }
-  else if (req.method === 'GET' && req.url === '/projects/edit_project') {  // Typed link - Clicked href
+  else if (req.method === 'GET' && req.url.startsWith('/projects/edit_project')) {  // Typed link - Clicked href
     filePath = './views/edit_project.html'
     fs.readFile(filePath, (err, data) => {
       if (err) {
