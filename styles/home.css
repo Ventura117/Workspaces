@@ -1,0 +1,9 @@
+.layout-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.weather-app {
+  border: 2px solid black;
+  padding: 8px;
+  height: 200px;
+}
