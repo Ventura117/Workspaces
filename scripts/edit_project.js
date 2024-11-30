@@ -8,7 +8,8 @@ fetch(`http://localhost:3000/projects/get_project/${projectId}`)
   })
 
 function loadProjectDetails(data) {
-  console.log(data)
+  console.log(JSON.stringify(data))
+  document.querySelector('#project_id').value = data.project_id || '';
   document.querySelector('#azure_id').value = data.azure_id || '';
   document.querySelector('#zendesk_id').value = data.zendesk_id || '';
   document.querySelector('#status').value = data.status || '';

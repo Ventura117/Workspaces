@@ -41,6 +41,7 @@
       </div>
     </div>
     <form class="form-container" action="http://localhost:3000/projects/update_project" method="POST">
+      <input type="text" name="project_id" id="project_id" class="hidden">
       <div class="form-input-container-s">
         <label for="azure_id">Azure Id:</label>
         <input type="text" name="azure_id" id="azure_id">
@@ -111,7 +112,7 @@
         <textarea name="acceptance" id="acceptance"></textarea>
       </div>
       <div class="form-footer">
-        <button type="">Cancel</button>
+        <button type="button" onclick="window.location.href='/projects'">Cancel</button>
         <button type="submit" >Submit</button>
       </div>
     </form>

@@ -290,7 +290,7 @@ const server = http.createServer((req, res) => {
         res.end('error')
       } else {
         res.statusCode = 200;
-        console.log(`Sending project ${projectId} data`)
+        console.log(`Sending project: ${projectId}`)
         res.end(JSON.stringify(result.rows[0]))
       }
     })
