@@ -259,6 +259,7 @@ const server = http.createServer((req, res) => {
           $1, $2, $3, $4, $5,
           $6, $7, $8, $9, $10, $11
         )
+        RETURNING project_id
       `;
       const values = [
         zendeskId, azureId, status, sponsor, priority,
@@ -267,9 +268,10 @@ const server = http.createServer((req, res) => {
       ];
   
       client.query(query, values)
-        .then(() => {
+        .then((result) => {
+          const projectId = result.rows[0].project_id;
           res.statusCode = 201;
-          res.end('Project created successfully.');
+          res.end(`Project id: ${projectId}  created successfully.`);
         })
         .catch((err) => {
           console.error('Error inserting project:', err);
