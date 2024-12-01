@@ -351,14 +351,68 @@ const server = http.createServer((req, res) => {
   }
   // IN PROGRESS
   else if (req.method === 'POST' && req.url === '/projects/update_project') {  // Clicked button - POST - Update project details
-    console.log('Receiving...')
     let body = '';
-    req.on('data', chunk => {
-      body += chunk;
+    req.on('data', (chunk) => {
+      body += chunk.toString();
     });
     req.on('end', () => {
-      console.log(body)
-      res.end('success')
+      const formData = new URLSearchParams(body);
+  
+      const projectId = formData.get('project_id') || null;
+      const zendeskId = formData.get('zendesk_id') || null;
+      const azureId = formData.get('azure_id') || null;
+      const status = formData.get('status') || null;
+      const sponsor = formData.get('sponsor') || null;
+      const priority = formData.get('priority') || null;
+      const assignee = formData.get('assignee') || null;
+      const projectName = formData.get('project_name') || null;
+      const dueDate = formData.get('due_date') || null;
+      const projectTitle = formData.get('project_title') || null;
+      const projectDescription = formData.get('project_description') || null;
+      const acceptance = formData.get('acceptance') || null;
+  
+      if (!projectId) {
+        res.statusCode = 400;
+        return res.end('Project ID is required for updating a project.');
+      }
+  
+      const query = `
+        UPDATE projects
+        SET
+          zendesk_id = $1,
+          azure_id = $2,
+          status = $3,
+          sponsor = $4,
+          priority = $5,
+          assignee = $6,
+          project_name = $7,
+          due_date = $8,
+          project_title = $9,
+          project_description = $10,
+          acceptance = $11
+        WHERE project_id = $12
+        RETURNING project_id
+      `;
+      const values = [
+        zendeskId, azureId, status, sponsor, priority,
+        assignee, projectName, dueDate, projectTitle,
+        projectDescription, acceptance, projectId,
+      ];
+  
+      client.query(query, values)
+        .then((result) => {
+          if (result.rowCount === 0) {
+            res.statusCode = 404;
+            return res.end('Project not found.');
+          }
+          res.statusCode = 200;
+          res.end(`Project id: ${projectId} updated successfully.`);
+        })
+        .catch((err) => {
+          console.error('Error updating project:', err);
+          res.statusCode = 500;
+          res.end('Failed to update project.');
+        });
     });
   }
   // IN PROGRESS
