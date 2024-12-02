@@ -270,8 +270,8 @@ const server = http.createServer((req, res) => {
       client.query(query, values)
         .then((result) => {
           const projectId = result.rows[0].project_id;
-          res.statusCode = 201;
-          res.end(`Project id: ${projectId}  created successfully.`);
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ success: true, message: `Project ${projectId} updated successfully.` }));
         })
         .catch((err) => {
           console.error('Error inserting project:', err);
