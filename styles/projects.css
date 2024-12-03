@@ -93,6 +93,13 @@
   border-radius: 4px;
   background-color: #FFFFFF;
   cursor: pointer;
+  color: #333333;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.projects-table select:focus {
+  border: 1px solid #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Responsive adjustments */

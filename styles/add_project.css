@@ -47,9 +47,21 @@
 .form-input-container-s select,
 .form-input-container-l textarea {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #CCCCCC;
+  background-color: #FFFFFF;
   border-radius: 4px;
   font-size: 14px;
+  color: #333333;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.form-input-container-s input:focus,
+.form-input-container-m input:focus,
+.form-input-container-l input:focus,
+.form-input-container-s select:focus,
+.form-input-container-l textarea:focus {
+  border: 1px solid #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 #date {

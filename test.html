@@ -6,14 +6,17 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <select name="selector" id="selector">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
 </body>
 <script>
-  try {
-    let projects = regards;
-    console.log('updated')
-  } catch (err) {
-    console.log('Failed: ', err)
-  }
+  let dropdownElem = document.querySelector('#selector')
+  
+  dropdownElem.addEventListener('change', () => {
+    alert('changed')
+  })
 </script>
 </html>
