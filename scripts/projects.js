@@ -15,7 +15,6 @@ getProjects();
 
 function renderProjects() {
   projects.forEach((project) => {
-    console.log(project)
     const tableRow = document.createElement('tr');
       projectsTable.appendChild(tableRow);
     const projectId = document.createElement('td');
@@ -43,6 +42,22 @@ function renderProjects() {
       status.style.textAlign = 'center';
       tableRow.appendChild(status);
     const statusSelector = document.createElement('select');
+      statusSelector.dataset.projectId = project.project_id;
+      statusSelector.addEventListener('change', function() {
+        console.log(this.dataset.projectId)
+        console.log(this.value)
+        fetch('http://localhost:3000/projects/update_status', {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            project_id: `${this.dataset.projectId}`,
+            status: `${this.value}`
+          })
+        })
+          .then((res) => {
+            console.log('Project updated successfully.')
+          })
+      })
       status.appendChild(statusSelector);
     const statusOption1 = document.createElement('option');
       statusOption1.value = 'Not Started';

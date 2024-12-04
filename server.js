@@ -174,6 +174,46 @@ const server = http.createServer((req, res) => {
       }
     })
   }
+  else if (req.method === 'POST' && req.url === '/projects/update_status') {
+    let body = '';
+    req.on('data', (chunk) => {
+      body += chunk.toString();
+    });
+    req.on('end', () => {
+  
+      const project = JSON.parse(body)
+
+      const status = project.status;
+      const projectId = project.project_id
+  
+      const query = `
+        UPDATE projects
+        SET
+          status = $1
+        WHERE project_id = $2
+        RETURNING project_id
+      `;
+      const values = [
+        status, projectId
+      ];
+  
+      client.query(query, values)
+        .then((result) => {
+          if (result.rowCount === 0) {
+            res.statusCode = 404;
+            return res.end('Project not found.');
+          }
+          res.statusCode = 200;
+          console.log(`${projectId} updated to ${status}.`)
+          res.end(`Project id: ${projectId} updated successfully.`);
+        })
+        .catch((err) => {
+          console.error('Error updating project:', err);
+          res.statusCode = 500;
+          res.end('Failed to update project.');
+        });
+    });
+  }
 
   // Add project page routes
   // GOOD
