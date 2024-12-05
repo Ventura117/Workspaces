@@ -116,3 +116,59 @@ function renderProjects() {
       tableRow.appendChild(dueDate);
   })
 }
+
+let selectedFilters = ['Not Started', 'In Progress', 'Complete'];
+
+const notStartedBtn = document.querySelector('#not-started-btn');
+const inProgressBtn = document.querySelector('#in-progress-btn');
+const completeBtn = document.querySelector('#complete-btn');
+const devCompleteBtn = document.querySelector('#dev-complete-btn');
+const canceledBtn = document.querySelector('#canceled-btn');
+
+const activeFiltersBtn = document.querySelector('#active-filters-btn');
+activeFiltersBtn.addEventListener('click', () => {
+  if (notStartedBtn.checked && inProgressBtn.checked && completeBtn.checked) {
+    notStartedBtn.checked = false;
+    inProgressBtn.checked = false;
+    completeBtn.checked = false;
+  } else {
+    notStartedBtn.checked = true;
+    inProgressBtn.checked = true;
+    completeBtn.checked = true;
+  }
+})
+const archiveFiltersBtn = document.querySelector('#archive-filters-btn');
+archiveFiltersBtn.addEventListener('click', () => {
+  if (devCompleteBtn.checked && canceledBtn.checked) {
+    devCompleteBtn.checked = false;
+    canceledBtn.checked = false;
+  } else {
+    devCompleteBtn.checked = true;
+    canceledBtn.checked = true;
+  }
+})
+
+const applyFiltersBtn = document.querySelector('#applyFilter');
+applyFiltersBtn.addEventListener('click', () => {
+  applyFilters();
+})
+
+function applyFilters() {
+  selectedFilters = [];
+  if (notStartedBtn.checked) {
+    selectedFilters.push(notStartedBtn.value)
+  }
+  if (inProgressBtn.checked) {
+    selectedFilters.push(inProgressBtn.value)
+  }
+  if (completeBtn.checked) {
+    selectedFilters.push(completeBtn.value)
+  }
+  if (devCompleteBtn.checked) {
+    selectedFilters.push(devCompleteBtn.value)
+  }
+  if (canceledBtn.checked) {
+    selectedFilters.push(canceledBtn.value)
+  }
+  console.log(selectedFilters)
+}

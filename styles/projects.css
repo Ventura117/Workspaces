@@ -33,6 +33,7 @@
 .filters fieldset legend,
 .filters fieldset label {
   cursor: pointer;
+  user-select: none;
 }
 
 .table-header button {

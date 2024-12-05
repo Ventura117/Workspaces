@@ -34,27 +34,27 @@
     <header class="table-header">
       <div class="filters" id="filters">
         <fieldset>
-          <legend>Active</legend>
+          <legend id="active-filters-btn">Active</legend>
           <label>
-            <input type="checkbox" name="filter" value="not_started" checked> Not Started
+            <input type="checkbox" name="filter" id="not-started-btn" value="Not Started" checked> Not Started
           </label>
           <label>
-            <input type="checkbox" name="filter" value="in_progress" checked> In Progress
+            <input type="checkbox" name="filter" id="in-progress-btn" value="In Progress" checked> In Progress
           </label>
           <label>
-            <input type="checkbox" name="filter" value="complete" checked> Complete
+            <input type="checkbox" name="filter" id="complete-btn" value="Complete" checked> Complete
           </label>
         </fieldset>
         <fieldset>
-          <legend>Archive</legend>
+          <legend id="archive-filters-btn">Archive</legend>
           <label>
-            <input type="checkbox" name="filter" value="dev_complete"> Dev Complete
+            <input type="checkbox" name="filter" id="dev-complete-btn" value="Dev Complete"> Dev Complete
           </label>
           <label>
-            <input type="checkbox" name="filter" value="canceled"> Canceled
+            <input type="checkbox" name="filter" id="canceled-btn" value="Canceled"> Canceled
           </label>
         </fieldset>
-        <button id="applyFilter">Apply Filter</button>
+        <button type="submit" id="applyFilter">Apply Filter</button>
       </div>
       <div class="table-header-right">
         <button>Export</button>
