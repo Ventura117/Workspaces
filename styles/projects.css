@@ -21,6 +21,19 @@
   border: 1px solid #CCCCCC;
   border-radius: 4px;
 }
+.filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 15px;
+}
+.filters fieldset {
+  padding-bottom: 5px;
+}
+.filters fieldset legend,
+.filters fieldset label {
+  cursor: pointer;
+}
 
 .table-header button {
   font-size: 14px;

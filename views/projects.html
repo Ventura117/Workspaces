@@ -32,13 +32,30 @@
   </nav>
   <main class="layout-main">
     <header class="table-header">
-      <select name="" id="">
-        <option value="">Not Started</option>
-        <option value="">In Progress</option>
-        <option value="">Complete</option>
-        <option value="">Dev Complete</option>
-        <option value="">Canceled</option>
-      </select>
+      <div class="filters" id="filters">
+        <fieldset>
+          <legend>Active</legend>
+          <label>
+            <input type="checkbox" name="filter" value="not_started" checked> Not Started
+          </label>
+          <label>
+            <input type="checkbox" name="filter" value="in_progress" checked> In Progress
+          </label>
+          <label>
+            <input type="checkbox" name="filter" value="complete" checked> Complete
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Archive</legend>
+          <label>
+            <input type="checkbox" name="filter" value="dev_complete"> Dev Complete
+          </label>
+          <label>
+            <input type="checkbox" name="filter" value="canceled"> Canceled
+          </label>
+        </fieldset>
+        <button id="applyFilter">Apply Filter</button>
+      </div>
       <div class="table-header-right">
         <button>Export</button>
         <a href="http://localhost:3000/projects/add_project">
