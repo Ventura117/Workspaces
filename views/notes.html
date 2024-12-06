@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects</title>
+  <title>Notes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -32,7 +32,34 @@
     </ul>
   </nav>
   <main class="layout-main">
-    
+    <div class="notes-container">
+      <div class="notes-header">
+        <div class="notes-header-left">
+          <select name="books" id="books">
+            <option value="book_1">Book 1</option>
+            <option value="book_2">Book 2</option>
+            <option value="book_3">Book 3</option>
+          </select>
+        </div>        
+        <div class="notes-header-right">
+          <button>Add Book</button>
+        </div>
+      </div>
+      <div class="notes-nav">
+        <button>Add Page</button>
+        <ul class="notes-pages">
+          <li>Page 1</li>
+          <li>Page 2</li>
+          <li>Page 3</li>
+        </ul>
+      </div>
+      <div class="notes-content">
+        <div class="notes-format-options">
+
+        </div>
+        <textarea name="notes" id="notes">Testing stuf stuff stuff stuff</textarea>
+      </div>
+    </div>
   </main>
   <script src="http://localhost:3000/scripts/layout"></script>
   <script src="http://localhost:3000/scripts/notes"></script>
