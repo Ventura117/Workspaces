@@ -1,12 +1,49 @@
 let projects;
-const projectsTable = document.querySelector('.projects-table-body')
+const projectsTable = document.querySelector('.projects-table-body');
+
+let selectedFilters = ['Not Started', 'In Progress', 'Complete'];
+
+const notStartedBtn = document.querySelector('#not-started-btn');
+const inProgressBtn = document.querySelector('#in-progress-btn');
+const completeBtn = document.querySelector('#complete-btn');
+const devCompleteBtn = document.querySelector('#dev-complete-btn');
+const canceledBtn = document.querySelector('#canceled-btn');
+
+const activeFiltersBtn = document.querySelector('#active-filters-btn');
+activeFiltersBtn.addEventListener('click', () => {
+  if (notStartedBtn.checked && inProgressBtn.checked && completeBtn.checked) {
+    notStartedBtn.checked = false;
+    inProgressBtn.checked = false;
+    completeBtn.checked = false;
+  } else {
+    notStartedBtn.checked = true;
+    inProgressBtn.checked = true;
+    completeBtn.checked = true;
+  }
+})
+const archiveFiltersBtn = document.querySelector('#archive-filters-btn');
+archiveFiltersBtn.addEventListener('click', () => {
+  if (devCompleteBtn.checked && canceledBtn.checked) {
+    devCompleteBtn.checked = false;
+    canceledBtn.checked = false;
+  } else {
+    devCompleteBtn.checked = true;
+    canceledBtn.checked = true;
+  }
+})
+
+const applyFiltersBtn = document.querySelector('#applyFilter');
+applyFiltersBtn.addEventListener('click', () => {
+  applyFilters();
+})
 
 function getProjects() {
-  fetch('http://localhost:3000/projects/get_projects')
+  let urlParams = selectedFilters.join(',');
+  fetch(`http://localhost:3000/projects/get_projects?status=${urlParams}`)
   .then(response => response.json())
   .then(data => {
     projects = data;
-    renderProjects()
+    renderProjects();
   })
   .catch(error => console.log(error))
 }
@@ -14,6 +51,7 @@ function getProjects() {
 getProjects();
 
 function renderProjects() {
+  projectsTable.innerHTML = '';
   projects.forEach((project) => {
     const tableRow = document.createElement('tr');
       projectsTable.appendChild(tableRow);
@@ -117,42 +155,6 @@ function renderProjects() {
   })
 }
 
-let selectedFilters = ['Not Started', 'In Progress', 'Complete'];
-
-const notStartedBtn = document.querySelector('#not-started-btn');
-const inProgressBtn = document.querySelector('#in-progress-btn');
-const completeBtn = document.querySelector('#complete-btn');
-const devCompleteBtn = document.querySelector('#dev-complete-btn');
-const canceledBtn = document.querySelector('#canceled-btn');
-
-const activeFiltersBtn = document.querySelector('#active-filters-btn');
-activeFiltersBtn.addEventListener('click', () => {
-  if (notStartedBtn.checked && inProgressBtn.checked && completeBtn.checked) {
-    notStartedBtn.checked = false;
-    inProgressBtn.checked = false;
-    completeBtn.checked = false;
-  } else {
-    notStartedBtn.checked = true;
-    inProgressBtn.checked = true;
-    completeBtn.checked = true;
-  }
-})
-const archiveFiltersBtn = document.querySelector('#archive-filters-btn');
-archiveFiltersBtn.addEventListener('click', () => {
-  if (devCompleteBtn.checked && canceledBtn.checked) {
-    devCompleteBtn.checked = false;
-    canceledBtn.checked = false;
-  } else {
-    devCompleteBtn.checked = true;
-    canceledBtn.checked = true;
-  }
-})
-
-const applyFiltersBtn = document.querySelector('#applyFilter');
-applyFiltersBtn.addEventListener('click', () => {
-  applyFilters();
-})
-
 function applyFilters() {
   selectedFilters = [];
   if (notStartedBtn.checked) {
@@ -170,5 +172,5 @@ function applyFilters() {
   if (canceledBtn.checked) {
     selectedFilters.push(canceledBtn.value)
   }
-  console.log(selectedFilters)
+  getProjects();
 }

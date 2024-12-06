@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const { Client } = require('pg');
-const { URLSearchParams } = require('url');
+const { URL, URLSearchParams } = require('url');
 
 const client = new Client({
   user: 'postgres',
@@ -110,18 +110,33 @@ const server = http.createServer((req, res) => {
 
   // Projects page routes
   // GOOD
-  else if (req.method === 'GET' && req.url === '/projects/get_projects') {  // Automatic - GET - Projects list
-    client.query('SELECT * FROM projects', (err, result) => {
+  else if (req.method === 'GET' && req.url.startsWith('/projects/get_projects')) {  
+    console.log('Incoming GET projects...')
+    const reqUrl = new URL(req.url, `http://${req.headers.host}`);
+    const statusFilter = reqUrl.searchParams.get('status')
+      ? reqUrl.searchParams.get('status').split(',')
+      : [];
+
+    let query = 'SELECT * FROM projects';
+    let queryParams = [];
+
+    if (statusFilter.length > 0) {
+      query = `SELECT * FROM projects WHERE status = ANY($1::text[])`;
+      queryParams = [statusFilter];
+    }
+
+    client.query(query, queryParams, (err, result) => {
       if (err) {
         res.statusCode = 500;
-        res.end('error')
+        res.end('Database error');
       } else {
         res.statusCode = 200;
-        console.log('Sending:  projects data')
-        res.end(JSON.stringify(result.rows))
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(result.rows));
       }
-    })
+    });
   }
+
   // GOOD
   else if (req.method === 'GET' && req.url === '/projects') {  // Typed link
     filePath = './views/projects.html'
