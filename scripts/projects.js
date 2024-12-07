@@ -200,22 +200,24 @@ function changeSortOrder(column) {
 const sortIcons = document.querySelectorAll('.table-header-icon')
 
 function changeSortIcon(column) {
+  sortIcons.forEach((icon) => {
+    if (icon.classList.contains('hidden')) {
+      icon.classList.remove('hidden')
+    }
+  })
+
   const upIcon = column.querySelector('.sort-up');
   const downIcon = column.querySelector('.sort-down');
-  if (sortOrder.length === 0) {
-    sortIcons.forEach((icon) => {
-      if (icon.classList.contains('hidden')) {
-        icon.classList.remove('hidden')
-      }
-    })
-    console.log('all icons added')
-  } else if (sortOrder[1] === 'ascending') {
+
+   if (sortOrder[1] === 'ascending') {
     downIcon.classList.add('hidden');
-    console.log('down hidden')
-  } else {
+    console.log(`Sorting: ${sortOrder}`)
+  } else if (sortOrder[1] === 'descending'){
     upIcon.classList.add('hidden');
     downIcon.classList.remove('hidden');
-    console.log('up hidden')
+    console.log(`Sorting: ${sortOrder}`)
+  } else {
+    console.log('Sorting reset')
   }
 }
 
