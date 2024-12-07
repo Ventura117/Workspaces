@@ -174,3 +174,51 @@ function applyFilters() {
   }
   getProjects();
 }
+
+
+let sortOrder = [];
+const sortableColumns = document.querySelectorAll('.wrap-wrap')
+sortableColumns.forEach((column) => {
+  column.addEventListener('click', function() {
+    changeSortOrder(this);
+  })
+})
+
+function changeSortOrder(column) {
+  console.log(column);
+  if (sortOrder[0] != column.id) {
+    sortOrder = [column.id, 'ascending'];
+  } else if (sortOrder[1] === 'ascending') {
+    sortOrder[1] = 'descending';
+  } else {
+    sortOrder = [];
+  }
+  console.log(sortOrder);
+  changeSortIcon(column);
+}
+
+const sortIcons = document.querySelectorAll('.table-header-icon')
+
+function changeSortIcon(column) {
+  const upIcon = column.querySelector('.sort-up');
+  const downIcon = column.querySelector('.sort-down');
+  if (sortOrder.length === 0) {
+    sortIcons.forEach((icon) => {
+      if (icon.classList.contains('hidden')) {
+        icon.classList.remove('hidden')
+      }
+    })
+    console.log('all icons added')
+  } else if (sortOrder[1] === 'ascending') {
+    downIcon.classList.add('hidden');
+    console.log('down hidden')
+  } else {
+    upIcon.classList.add('hidden');
+    downIcon.classList.remove('hidden');
+    console.log('up hidden')
+  }
+}
+
+function sortData() {
+
+}
