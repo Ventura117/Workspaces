@@ -193,7 +193,7 @@ function changeSortOrder(column) {
   } else {
     sortOrder = [];
   }
-  console.log(sortOrder);
+  console.log(typeof sortOrder);
   changeSortIcon(column);
 }
 
@@ -211,16 +211,58 @@ function changeSortIcon(column) {
 
    if (sortOrder[1] === 'ascending') {
     downIcon.classList.add('hidden');
-    console.log(`Sorting: ${sortOrder}`)
+    console.log(`Sorting: ${sortOrder}`);
+    sortData();
   } else if (sortOrder[1] === 'descending'){
     upIcon.classList.add('hidden');
     downIcon.classList.remove('hidden');
     console.log(`Sorting: ${sortOrder}`)
+    sortData();
   } else {
     console.log('Sorting reset')
   }
 }
 
 function sortData() {
+  console.log(projects)
+  const sortField = sortOrder[0];
+  const sortBy = sortOrder[1];
+  const projectsSorted = [...projects]
+  projectsSorted.sort((a, b) => {
+  // Get the values for the field we want to sort by
+  const aValue = a[sortField];
+  const bValue = b[sortField];
 
+  // Handle string values
+  if (typeof aValue === "string" && typeof bValue === "string") {
+    if (sortBy === "ascending") {
+      return aValue.localeCompare(bValue); // Compare strings alphabetically
+    } else {
+      return bValue.localeCompare(aValue);
+    }
+  }
+
+  // Handle numbers
+  if (typeof aValue === "number" && typeof bValue === "number") {
+    if (sortBy === "ascending") {
+      return aValue - bValue; // Compare numbers
+    } else {
+      return bValue - aValue;
+    }
+  }
+
+  // Handle dates (like "created_at")
+  if (sortField === "created_at" || sortField === "due_date") {
+    const dateA = new Date(aValue);
+    const dateB = new Date(bValue);
+    if (sortBy === "ascending") {
+      return dateA - dateB; // Compare dates
+    } else {
+      return dateB - dateA;
+    }
+  }
+  return 0; // If none of the above, don't change the order
+});
+console.log(projectsSorted)
+// renderProjects()
 }
