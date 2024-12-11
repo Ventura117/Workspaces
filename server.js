@@ -404,7 +404,7 @@ const server = http.createServer((req, res) => {
       }
     })
   }
-  // IN PROGRESS
+  // GOOD
   else if (req.method === 'POST' && req.url === '/projects/update_project') {  // Clicked button - POST - Update project details
     let body = '';
     req.on('data', (chunk) => {
@@ -473,6 +473,20 @@ const server = http.createServer((req, res) => {
   // IN PROGRESS
   else if (req.method === 'DELETE' && req.url === '/projects/delete_project') {
 
+  }
+  
+  // Comments routes
+  else if (req.method === 'GET' && req.url === '/projects/get_comments') {
+
+  }
+  else if (req.method === 'GET' && req.url === '/projects/create_comment') {
+
+  }
+  else if (req.method === 'GET' && req.url === '/projects/update_comment') {
+
+  }
+  else if (req.method === 'DELETE' && req.url === '/projects/delete_comment') {
+    
   }
 
   
