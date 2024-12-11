@@ -275,7 +275,7 @@ function applyFilters() {
   getProjects();
 }
 
-
+// Sorting functions
 let sortOrder = [];
 
 const sortableColumns = document.querySelectorAll('.wrap-wrap')
@@ -297,8 +297,6 @@ function changeSortOrder(column) {
   changeSortIcon(column);
   sortData();
 }
-
-
 
 function changeSortIcon(column) {
   const sortIcons = document.querySelectorAll('.table-header-icon')

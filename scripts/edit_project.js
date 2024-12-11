@@ -51,3 +51,21 @@ function toggleDetails() {
   }
 }
 
+function renderCommentsModal() {
+
+}
+function getComments() {
+
+}
+function renderComments() {
+
+}
+function createComment() {
+
+}
+function updateComment() {
+
+}
+function deleteComment() {
+
+}
