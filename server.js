@@ -476,8 +476,18 @@ const server = http.createServer((req, res) => {
   }
   
   // Comments routes
-  else if (req.method === 'GET' && req.url === '/projects/get_comments') {
-
+  else if (req.method === 'GET' && req.url.startsWith('/projects/get_comments')) {
+    const projectId = req.url.split('/').pop();
+    client.query(`SELECT * FROM comments WHERE project_id = $1`, [projectId], (err, result) => {
+      if (err) {
+        res.statusCode = 500;
+        res.end('error')
+      } else {
+        res.statusCode = 200;
+        console.log(`Sending comments: ${projectId}`)
+        res.end(JSON.stringify(result.rows))
+      }
+    })
   }
   else if (req.method === 'GET' && req.url === '/projects/create_comment') {
 
@@ -486,7 +496,7 @@ const server = http.createServer((req, res) => {
 
   }
   else if (req.method === 'DELETE' && req.url === '/projects/delete_comment') {
-    
+
   }
 
   
