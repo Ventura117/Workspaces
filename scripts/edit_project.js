@@ -112,6 +112,7 @@ function getComments() {
     .then(response => response.json())
     .then((data) => {
       comments = data
+      console.log(comments)
       renderComments();
     })
 }
@@ -121,19 +122,25 @@ function renderComments() {
   commentsBody.innerHTML = '';
   // Add Edit and Delete buttons for each
   comments.forEach((comment) => {
-    const commentElem = document.createElement('li');
-      commentsBody.appendChild(commentElem)
-    const commentMsg = document.createElement('span');
-      commentMsg.textContent = comment.message;
-      commentElem.appendChild(commentMsg);
-    const commentBtnGrp = document.createElement('div');
-      commentElem.appendChild(commentBtnGrp);
-    const editCommentBtn = document.createElement('button');
-      editCommentBtn.textContent = 'Edit';
-      commentBtnGrp.appendChild(editCommentBtn);
-    const deleteCommentBtn = document.createElement('button');
-      deleteCommentBtn.textContent = 'Delete';
-      commentBtnGrp.appendChild(deleteCommentBtn);
+    const commentContainer = document.createElement('li')
+      commentsBody.appendChild(commentContainer)
+    const commentFieldset = document.createElement('fieldset')
+      commentContainer.appendChild(commentFieldset)
+    const commentDate = document.createElement('legend')
+      commentFieldset.appendChild(commentDate)
+    const commentMsg = document.createElement('span')
+      commentMsg.textContent = comment.message
+      commentFieldset.appendChild(commentMsg)
+    const commentBtnGrp = document.createElement('div')
+      commentFieldset.appendChild(commentBtnGrp)
+    const editCommentBtn = document.createElement('button')
+      editCommentBtn.textContent = 'Edit'
+      commentBtnGrp.appendChild(editCommentBtn)
+    const deleteCommentBtn = document.createElement('button')
+      deleteCommentBtn.textContent = 'Delete'
+      commentBtnGrp.appendChild(deleteCommentBtn)
+
+
   })
 }
 function createComment() {
