@@ -119,25 +119,37 @@ function getComments() {
 function renderComments() {
   const commentsBody = document.querySelector('.comments-body');
   commentsBody.innerHTML = '';
+  // Add Edit and Delete buttons for each
   comments.forEach((comment) => {
     const commentElem = document.createElement('li');
-      commentElem.textContent = comment.message;
       commentsBody.appendChild(commentElem)
+    const commentMsg = document.createElement('span');
+      commentMsg.textContent = comment.message;
+      commentElem.appendChild(commentMsg);
+    const commentBtnGrp = document.createElement('div');
+      commentElem.appendChild(commentBtnGrp);
+    const editCommentBtn = document.createElement('button');
+      editCommentBtn.textContent = 'Edit';
+      commentBtnGrp.appendChild(editCommentBtn);
+    const deleteCommentBtn = document.createElement('button');
+      deleteCommentBtn.textContent = 'Delete';
+      commentBtnGrp.appendChild(deleteCommentBtn);
   })
 }
 function createComment() {
-  const newComment = document.querySelector('.comment-input').value
-  if (!newComment) {
+  const newComment = document.querySelector('.comment-input')
+  if (!newComment.value) {
     console.log('Comment cannot be empty!')
   } else {
     fetch(`http://localhost:3000/projects/create_comment`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ project_id: projectId, message: newComment })
+      body: JSON.stringify({ project_id: projectId, message: newComment.value })
     })
       .then(response => response.json())
-      .then (data => {
-        console.log(data)
+      .then (() => {
+        newComment.value = '';
+        getComments();
       })
   }
 }

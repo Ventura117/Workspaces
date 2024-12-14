@@ -484,7 +484,6 @@ const server = http.createServer((req, res) => {
         res.end('error')
       } else {
         res.statusCode = 200;
-        console.log(`Sending comments: ${projectId}`)
         res.end(JSON.stringify(result.rows))
       }
     })
@@ -515,6 +514,7 @@ const server = http.createServer((req, res) => {
       client.query(query, values)
         .then((result) => {
           const commentId = result.rows[0].comment_id;
+          console.log(`Created comment ${commentId}`)
           res.writeHead(200, { 'Content-Type': 'application/json' });
           res.end(JSON.stringify({ success: true, message: `Comment ${commentId} created successfully.` }));
         })
