@@ -489,9 +489,43 @@ const server = http.createServer((req, res) => {
       }
     })
   }
-  else if (req.method === 'GET' && req.url === '/projects/create_comment') {
-
+  else if (req.method === 'POST' && req.url === '/projects/create_comment') {
+    let body = '';
+    req.on('data', (chunk) => {
+      body += chunk.toString();
+    });
+    req.on('end', () => {
+      let parsedBody = JSON.parse(body)
+      let projectId = parsedBody.project_id;
+      let message = parsedBody.message
+  
+      const query = `
+        INSERT INTO comments (
+          project_id, message
+        )
+        VALUES (
+          $1, $2
+        )
+        RETURNING comment_id
+      `;
+      const values = [
+        projectId, message
+      ];
+  
+      client.query(query, values)
+        .then((result) => {
+          const commentId = result.rows[0].comment_id;
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ success: true, message: `Comment ${commentId} created successfully.` }));
+        })
+        .catch((err) => {
+          console.error('Error inserting comment:', err);
+          res.statusCode = 500;
+          res.end('Failed to create comment.');
+        });
+    })
   }
+
   else if (req.method === 'GET' && req.url === '/projects/update_comment') {
 
   }

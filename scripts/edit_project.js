@@ -127,7 +127,19 @@ function renderComments() {
 }
 function createComment() {
   const newComment = document.querySelector('.comment-input').value
-  
+  if (!newComment) {
+    console.log('Comment cannot be empty!')
+  } else {
+    fetch(`http://localhost:3000/projects/create_comment`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ project_id: projectId, message: newComment })
+    })
+      .then(response => response.json())
+      .then (data => {
+        console.log(data)
+      })
+  }
 }
 function updateComment() {
 
