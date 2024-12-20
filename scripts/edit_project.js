@@ -127,6 +127,7 @@ function renderComments() {
     const commentFieldset = document.createElement('fieldset')
       commentContainer.appendChild(commentFieldset)
     const commentDate = document.createElement('legend')
+      commentDate.textContent = comment.created_at;      
       commentFieldset.appendChild(commentDate)
     const commentMsg = document.createElement('span')
       commentMsg.textContent = comment.message
