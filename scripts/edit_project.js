@@ -13,7 +13,7 @@ function loadProjectDetails(data) {
   document.querySelector('#zendesk_id').value = data.zendesk_id || '';
   document.querySelector('#status').value = data.status || '';
   document.querySelector('#sponsor').value = data.sponsor || '';
-  document.querySelector('#priority').value = data.priority || '';
+  document.querySelector('#priority').value = data.priority.toString() || '';
   document.querySelector('#assignee').value = data.assignee || '';
   document.querySelector('#project_name').value = data.project_name || '';
   document.querySelector('#due_date').value = data.due_date || '';
